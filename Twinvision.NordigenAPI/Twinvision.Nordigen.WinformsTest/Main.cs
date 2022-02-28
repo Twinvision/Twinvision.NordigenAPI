@@ -8,7 +8,7 @@ namespace Twinvision.Nordigen.WinformsTest
         private HttpClient client = new HttpClient();
         private Dictionary<string, string> countries = new Dictionary<string, string>();
 
-        private Institution[] institutions;
+        private Institution[]? institutions = null;
 
         public Main()
         {
@@ -52,7 +52,7 @@ namespace Twinvision.Nordigen.WinformsTest
         {
             if (Banks.SelectedItems.Count > 0)
             {
-                PropertyGrid.SelectedObject = institutions.FirstOrDefault(where => where.Id == (string)Banks.SelectedItems[0].Tag);
+                PropertyGrid.SelectedObject = institutions?.FirstOrDefault(where => where.Id == (string)Banks.SelectedItems[0].Tag);
             }
             else
             {
