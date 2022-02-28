@@ -6,18 +6,27 @@ namespace Twinvision.Nordigen.WinformsTest
     public partial class Main : Form
     {
         private HttpClient client = new HttpClient();
+        private Dictionary<string, string> countries = new Dictionary<string, string>();
+
         private Institution[] institutions;
 
         public Main()
         {
             InitializeComponent();
+
+            countries.Add("nl", "The Netherlands");
+            countries.Add("be", "Belgium");
+            countries.Add("de", "Germany");
+            Countries.DataSource = countries.ToList();
+            Countries.ValueMember = "Key";
+            Countries.DisplayMember = "Value";
         }
 
         private async void ListBanks_Click(object sender, EventArgs e)
         {
             Banks.Clear();
             var nac = new NordigenAPICaller(SecretId.Text, SecretKey.Text);
-            institutions = await nac.Institutions.GetInstitutions(Countries.Text);
+            institutions = await nac.Institutions.GetInstitutions((string)Countries.SelectedValue);
             Banks.SuspendLayout();
             foreach (var institution in institutions)
             {
@@ -49,6 +58,11 @@ namespace Twinvision.Nordigen.WinformsTest
             {
                 PropertyGrid.SelectedObject = null;
             }
+        }
+
+        private void Countries_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ListBanks.Enabled = Countries.SelectedValue != null;
         }
     }
 }
