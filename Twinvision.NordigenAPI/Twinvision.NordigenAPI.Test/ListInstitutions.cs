@@ -17,7 +17,7 @@ namespace Twinvision.NordigenAPI.Test
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
             var result = await nac.Institutions.GetInstitutions("nl");
 
-            Assert.IsTrue(result.Institutions.Length > 0);
+            Assert.IsTrue(result.Length > 0);
         }
     }
 }

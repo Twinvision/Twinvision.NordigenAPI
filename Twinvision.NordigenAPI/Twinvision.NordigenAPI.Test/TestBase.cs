@@ -15,14 +15,16 @@ namespace Twinvision.NordigenAPI.Test
         public IConfiguration Configuration { get; set; }
 
         [TestInitialize]
-        public async void Initialize()
+        public void Initialize()
         {
-            await Task.Delay(500);
-
+       
             var builder = new ConfigurationBuilder()
                 .AddUserSecrets<TestBase>();
 
             Configuration = builder.Build();
+
+            TestSecretId = Configuration["secretId"];
+            TestSecretKey = Configuration["secretKey"];
         }
    
     }

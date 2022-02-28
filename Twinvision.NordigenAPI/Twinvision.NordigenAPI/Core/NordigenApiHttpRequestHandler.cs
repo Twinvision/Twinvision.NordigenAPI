@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Twinvision.NordigenAPI;
 using Twinvision.NordigenAPI.Requests;
+using Twinvision.NordigenAPI.Responses;
 
 namespace Twinvision.NordigenAPI
 {
@@ -35,7 +36,7 @@ namespace Twinvision.NordigenAPI
         /// <summary>
         /// Object containing authorization details making it possible to reauthorize automatically when authorization is expired.
         /// </summary>
-        private static Responses.Authorization Authorization;
+        private static AccessToken Authorization;
 
         /// <summary>
         /// HttpClient instance used by all HTTP requests.
@@ -75,15 +76,15 @@ namespace Twinvision.NordigenAPI
         /// <param name="clientId">The client Id used for authentication.</param>
         /// <param name="clientSecret">The client Secret used for authentication.</param>
         /// <returns></returns>
-        private static async Task<Responses.Authorization> GetAuthorization(string secretId, string secretKey)
+        private static async Task<Responses.AccessToken> GetAuthorization(string secretId, string secretKey)
         {
-            var request = new AccessToken { Secret_id = secretId, Secret_key = secretKey };
+            var request = new UserSecret { Secret_id = secretId, Secret_key = secretKey };
             HttpClient.DefaultRequestHeaders.Accept.Clear();
             HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(AcceptHeaders.Json));
             var htmlContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, AcceptHeaders.Json);
-            var response = await HttpClient.PostAsync(new Uri(ApiUrl + "/token/new"), htmlContent).ConfigureAwait(false);
+            var response = await HttpClient.PostAsync(new Uri(ApiUrl + "/token/new/"), htmlContent).ConfigureAwait(false);
             var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            return JsonConvert.DeserializeObject<Responses.Authorization>(responseContent);
+            return JsonConvert.DeserializeObject<Responses.AccessToken>(responseContent);
         }
 
         /// <summary>
@@ -165,12 +166,12 @@ namespace Twinvision.NordigenAPI
             }
             HttpClient.DefaultRequestHeaders.Accept.Clear();
             HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptHeader));
-            HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Authorization.Access_token);
+            HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Authorization.Access);
             var response = await httpRequest(builder.Uri).ConfigureAwait(false);
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 Authorization = await GetAuthorization(ClientId, ClientSecret).ConfigureAwait(false);
-                HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Authorization.Access_token);
+                HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Authorization.Access);
                 response = await httpRequest(builder.Uri).ConfigureAwait(false);
             }
             if (!response.IsSuccessStatusCode)
