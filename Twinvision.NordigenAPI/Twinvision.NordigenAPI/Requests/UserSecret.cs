@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Twinvision.NordigenAPI.Requests
 {
-    public class UserSecret
+    public sealed class UserSecret
     {
         [JsonProperty("secret_id")]
         public string Secret_id { get; set; }
