@@ -7,7 +7,7 @@ namespace Twinvision.NordigenAPI
     public sealed class NordigenAPICaller
     {
         public Institutions Institutions { get; }
-
+        public Accounts Accounts { get; }
         /// <summary>
         /// Constructor used to create an instance of the BolApiCaller
         /// </summary>
@@ -17,7 +17,7 @@ namespace Twinvision.NordigenAPI
         {
             Task.Run(() => NordigenApiHttpRequestHandler.Initialize(secretId, secretKey)).Wait();
 
-            Institutions = new Institutions();
+            Accounts = new Accounts();
         }
     }
 }
