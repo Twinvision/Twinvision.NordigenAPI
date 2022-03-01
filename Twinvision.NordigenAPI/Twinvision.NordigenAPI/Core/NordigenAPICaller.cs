@@ -10,7 +10,7 @@ namespace Twinvision.NordigenAPI
         public Requisitions Requisitions { get; }
 
         /// <summary>
-        /// Constructor used to create an instance of the BolApiCaller
+        /// Constructor used to create an instance of the NordigenAPICaller
         /// </summary>
         /// <param name="secretId">The api secretId required for authorization, requestable from the Nordigen website.</param>
         /// <param name="secretKey">The api secretKey required for authorization, requestable from the Nordigen website .</param>
