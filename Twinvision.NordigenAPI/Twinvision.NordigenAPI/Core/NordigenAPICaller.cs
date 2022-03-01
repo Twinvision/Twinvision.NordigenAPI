@@ -9,6 +9,7 @@ namespace Twinvision.NordigenAPI
         public Institutions Institutions { get; }
         public Accounts Accounts { get; }
         public Requisitions Requisitions { get; }
+        public Agreements Agreements { get; }
 
         /// <summary>
         /// Constructor used to create an instance of the NordigenAPICaller
@@ -21,6 +22,7 @@ namespace Twinvision.NordigenAPI
 
             Institutions = new Institutions();
             Requisitions = new Requisitions();
+            Agreements = new Agreements();  
             Accounts = new Accounts();
         }
     }

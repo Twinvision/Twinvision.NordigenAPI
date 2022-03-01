@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twinvision.NordigenAPI", "Twinvision.NordigenAPI\Twinvision.NordigenAPI.csproj", "{732043D8-4862-4CBD-BAF4-098FD262FD12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twinvision.NordigenAPI.Test", "Twinvision.NordigenAPI.Test\Twinvision.NordigenAPI.Test.csproj", "{9C7E8260-444E-4D6D-981C-A82026DFDB7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twinvision.NordigenAPI.Test", "Twinvision.NordigenAPI.Test\Twinvision.NordigenAPI.Test.csproj", "{9C7E8260-444E-4D6D-981C-A82026DFDB7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twinvision.Nordigen.WinformsTest", "Twinvision.Nordigen.WinformsTest\Twinvision.Nordigen.WinformsTest.csproj", "{4B10465F-A197-45A5-85E5-465B287ED818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twinvision.Nordigen.WinformsTest", "Twinvision.Nordigen.WinformsTest\Twinvision.Nordigen.WinformsTest.csproj", "{4B10465F-A197-45A5-85E5-465B287ED818}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

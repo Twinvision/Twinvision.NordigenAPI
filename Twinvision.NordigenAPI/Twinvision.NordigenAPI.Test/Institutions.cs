@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Twinvision.NordigenAPI.Test
 {
     [TestClass]
-    public class ListInstitutions : TestBase
+    public class Institutions : TestBase
     {
         [TestMethod]
         public async Task ListInstitutionsNL()
@@ -61,6 +61,15 @@ namespace Twinvision.NordigenAPI.Test
             var result = await nac.Accounts.GetAccountTransactions("nl");
 
             Assert.IsTrue(result.Length > 0);
+        }
+
+        [TestMethod]
+        public async Task ListInstitutionN26_NTSBDEB1()
+        {
+            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+            var result = await nac.Institutions.GetInstitution("N26_NTSBDEB1");
+
+            Assert.IsTrue(result.BIC == "NTSBDEB1");
         }
     }
 }
