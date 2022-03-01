@@ -13,7 +13,7 @@ The library also handles recreation of timed out authentications so you don't ha
  - Institutions
  - Requisitions
  - Token
- - 
+
 # Examples:
 
 List all institutions for The Netherlands:
