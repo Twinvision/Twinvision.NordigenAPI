@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.Banks = new System.Windows.Forms.ListView();
             this.BankImages = new System.Windows.Forms.ImageList(this.components);
             this.Countries = new System.Windows.Forms.ComboBox();
@@ -60,8 +61,9 @@
             // BankImages
             // 
             this.BankImages.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.BankImages.ImageSize = new System.Drawing.Size(32, 32);
+            this.BankImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("BankImages.ImageStream")));
             this.BankImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.BankImages.Images.SetKeyName(0, "SandBoxBank");
             // 
             // Countries
             // 

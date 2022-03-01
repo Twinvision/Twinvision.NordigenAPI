@@ -1,6 +1,7 @@
 using Twinvision.NordigenAPI;
 using Twinvision.NordigenAPI.Responses;
-
+using System.Linq;
+    
 namespace Twinvision.Nordigen.WinformsTest
 {
     public partial class Main : Form
@@ -8,7 +9,7 @@ namespace Twinvision.Nordigen.WinformsTest
         private HttpClient client = new HttpClient();
         private Dictionary<string, string> countries = new Dictionary<string, string>();
 
-        private Institution[]? institutions = null;
+        private List<Institution> institutions = new List<Institution>();
 
         public Main()
         {
@@ -26,7 +27,8 @@ namespace Twinvision.Nordigen.WinformsTest
         {
             Banks.Clear();
             var nac = new NordigenAPICaller(SecretId.Text, SecretKey.Text);
-            institutions = await nac.Institutions.GetInstitutions((string)Countries.SelectedValue);
+            institutions = (await nac.Institutions.GetInstitutions((string)Countries.SelectedValue)).ToList();
+            institutions.Insert(0, new Institution() { Id = "SANDBOXFINANCE_SFIN0000", Logo = "SandBoxBank", Name = "Sandbox Finance" });
             Banks.SuspendLayout();
             foreach (var institution in institutions)
             {
