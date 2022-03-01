@@ -27,6 +27,17 @@ namespace Twinvision.NordigenAPI.Handlers
             return await NordigenAPIHelper.GetContentFromResponse<Requisition>(response).ConfigureAwait(false);
         }
 
+        //public async Task<Requisition> PostRequisitionLink(string institution_id, string redirect)
+        //{
+        //    var parameters = new Dictionary<string, string>
+        //    {
+        //        { "institution_id", institution_id.ToString()},
+        //        { "redirect", redirect.ToString() }
+        //    };
+        //    var response = await Post("/requisitions/", parameters);
+        //    return await NordigenAPIHelper.GetContentFromResponse<Requisition>(response).ConfigureAwait(false);
+        //}
+
         public async Task<Requisition> GetRequisition(Guid id)
         {
             var response = await Get($"/requisitions/{id}/");

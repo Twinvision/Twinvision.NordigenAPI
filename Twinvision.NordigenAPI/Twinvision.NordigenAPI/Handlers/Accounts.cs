@@ -11,40 +11,24 @@ namespace Twinvision.NordigenAPI.Handlers
     {
         public async Task<Accounts[]> GetAccounts(string id)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                { "id", id }
-            };
-            var response = await Get("/accounts/", parameters);
+            var response = await Get($"/accounts/{id}");
             return await NordigenAPIHelper.GetContentFromResponse<Accounts[]>(response).ConfigureAwait(false);
         }
 
         public async Task<Accounts[]> GetAccountBalances(string id)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                { "id", id }
-            };
-            var response = await Get("/accounts/{0}/balances/", null);
+            var response = await Get($"/accounts/{id}/balances/");
             return await NordigenAPIHelper.GetContentFromResponse<Accounts[]>(response).ConfigureAwait(false);
         }
 
         public async Task<Accounts[]> GetAccountDetails(string id)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                { "id", id }
-            };
-            var response = await Get("/accounts/{0}/details/", null);
+            var response = await Get($"/accounts/{id}/details/");
             return await NordigenAPIHelper.GetContentFromResponse<Accounts[]>(response).ConfigureAwait(false);
         }
         public async Task<Accounts[]> GetAccountTransactions(string id)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                { "id", id }
-            };
-            var response = await Get("/accounts/{0}/transactions/", null);
+            var response = await Get($"/accounts/{id}/transactions/");
             return await NordigenAPIHelper.GetContentFromResponse<Accounts[]>(response).ConfigureAwait(false);
         }
 

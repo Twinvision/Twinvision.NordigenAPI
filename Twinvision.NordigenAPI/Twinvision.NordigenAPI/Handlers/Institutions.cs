@@ -25,4 +25,4 @@ namespace Twinvision.NordigenAPI.Handlers
             return await NordigenAPIHelper.GetContentFromResponse<Institution[]>(response).ConfigureAwait(false);
         }
     }
-} 
+}

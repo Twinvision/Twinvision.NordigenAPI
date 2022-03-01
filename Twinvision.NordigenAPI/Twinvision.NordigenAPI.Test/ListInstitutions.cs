@@ -15,15 +15,25 @@ namespace Twinvision.NordigenAPI.Test
         public async Task ListInstitutionsNL()
         {
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
-            var result = await nac.Institutions.GetInstitutions("nl");
+            var result = await nac.Institutions.GetInstitutions("");
 
             Assert.IsTrue(result.Length > 0);
         }
+
+        //[TestMethod]
+        //public async Task CreateLink()
+        //{
+        //    var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+        //    var result = await nac.Accounts.GetAccountDetails("");
+
+        //    Assert.IsTrue(result.Length > 0);
+        //}
+
         [TestMethod]
         public async Task ListAccountsDetails()
         {
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
-            var result = await nac.Accounts.GetAccountDetails("nl");
+            var result = await nac.Accounts.GetAccountDetails("");
 
             Assert.IsTrue(result.Length > 0);
         }
@@ -31,7 +41,7 @@ namespace Twinvision.NordigenAPI.Test
         public async Task ListAccounts()
         {
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
-            var result = await nac.Accounts.GetAccounts("nl");
+            var result = await nac.Accounts.GetAccounts("");
 
             Assert.IsTrue(result.Length > 0);
         }
@@ -39,15 +49,7 @@ namespace Twinvision.NordigenAPI.Test
         public async Task ListAccountBalances()
         {
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
-            var result = await nac.Accounts.GetAccountBalances("nl");
-
-            Assert.IsTrue(result.Length > 0);
-        }
-        [TestMethod]
-        public async Task ListAccountDetails()
-        {
-            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
-            var result = await nac.Accounts.GetAccountDetails("nl");
+            var result = await nac.Accounts.GetAccountBalances("");
 
             Assert.IsTrue(result.Length > 0);
         }

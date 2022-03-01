@@ -8,12 +8,6 @@ namespace Twinvision.NordigenAPI.Responses
 {
     public sealed class Account
     {
-        public class Status
-        {
-            [JsonProperty("DISCOVERED")]
-            public string DISCOVERED { get; set; }
-        }
-
         public class Root
         {
             [JsonProperty("id")]
@@ -33,6 +27,12 @@ namespace Twinvision.NordigenAPI.Responses
 
             [JsonProperty("status")]
             public Status Status { get; set; }
+        }
+
+        public class Status
+        {
+            [JsonProperty("DISCOVERED")]
+            public string DISCOVERED { get; set; }
         }
     }
 }
