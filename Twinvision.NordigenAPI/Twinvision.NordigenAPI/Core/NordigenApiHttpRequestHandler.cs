@@ -14,7 +14,7 @@ using Twinvision.NordigenAPI.Responses;
 namespace Twinvision.NordigenAPI
 {
     /// <summary>
-    /// Class used to standardize api request calls to boll.
+    /// Class used to standardize api request calls to Nordigen.
     /// </summary>
     public abstract class NordigenApiHttpRequestHandler
     {
