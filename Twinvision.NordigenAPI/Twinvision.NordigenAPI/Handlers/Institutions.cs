@@ -18,5 +18,10 @@ namespace Twinvision.NordigenAPI.Handlers
             var response = await Get("/institutions/", parameters);
             return await NordigenAPIHelper.GetContentFromResponse<Institution[]>(response).ConfigureAwait(false);
         }
+        public async Task<Institution> GetInstitution(string id)
+        {
+            var response = await Get($"/institutions/{id}/");
+            return await NordigenAPIHelper.GetContentFromResponse<Institution>(response).ConfigureAwait(false);
+        }
     }
 }
