@@ -21,7 +21,7 @@ namespace Twinvision.NordigenAPI.Handlers
             return await NordigenAPIHelper.GetContentFromResponse<PagedResponse<Requisition>>(response).ConfigureAwait(false);
         }
 
-        public async Task<Requisition> PostRequisition(RequisitionRequest requisition)
+        public async Task<Requisition> CreateRequisition(RequisitionRequest requisition)
         {        
             var response = await Post("/requisitions/", NordigenAPIHelper.BuildContentFromObject(requisition));
             return await NordigenAPIHelper.GetContentFromResponse<Requisition>(response).ConfigureAwait(false);

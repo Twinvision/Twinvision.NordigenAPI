@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EO.WebBrowser" Version="22.0.40" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Twinvision.NordigenAPI\Twinvision.NordigenAPI.csproj" />
   </ItemGroup>
 

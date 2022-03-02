@@ -17,30 +17,30 @@ namespace Twinvision.NordigenAPI.Handlers
                 { "limit", limit.ToString() },
                 { "offset", offset.ToString() }
             };
-            var response = await Get("/api​/v2​/agreements​/enduser​/", parameters);
+            var response = await Get("/agreements​/enduser​/", parameters);
             return await NordigenAPIHelper.GetContentFromResponse<PagedResponse<Agreement>>(response).ConfigureAwait(false);
         }
 
-        public async Task<Agreement> PostAgreement(AgreementRequest agreement)
+        public async Task<Agreement> CreateAgreement(AgreementRequest agreement)
         {        
-            var response = await Post("/api​/v2​/agreements​/enduser​/", NordigenAPIHelper.BuildContentFromObject(agreement));
+            var response = await Post("/agreements​/enduser​/", NordigenAPIHelper.BuildContentFromObject(agreement));
             return await NordigenAPIHelper.GetContentFromResponse<Agreement>(response).ConfigureAwait(false);
         }
 
         public async Task<Agreement> GetAgreement(Guid id)
         {
-            var response = await Get($"/api/v2/agreements/enduser/{id}/");
+            var response = await Get($"/agreements/enduser/{id}/");
             return await NordigenAPIHelper.GetContentFromResponse<Agreement>(response).ConfigureAwait(false);
         }
 
         public async Task<ApiCallSuccess> DeleteAgreement(Guid id)
         {
-            var response = await Delete($"/api/v2/agreements/enduser/{id}/");
+            var response = await Delete($"/agreements/enduser/{id}/");
             return await NordigenAPIHelper.GetContentFromResponse<ApiCallSuccess>(response).ConfigureAwait(false);
         }
         public async Task<Agreement> AcceptAgreement(Guid id, AgreementRequest agreement)
         {
-            var response = await Put($"/api/v2/agreements/enduser/{id}/accept/", NordigenAPIHelper.BuildContentFromObject(agreement));
+            var response = await Put($"/agreements/enduser/{id}/accept/", NordigenAPIHelper.BuildContentFromObject(agreement));
             return await NordigenAPIHelper.GetContentFromResponse<Agreement>(response).ConfigureAwait(false);
         }
     }
