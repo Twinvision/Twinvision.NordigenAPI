@@ -29,7 +29,8 @@ namespace Twinvision.NordigenAPI
         {
             var settings = new JsonSerializerSettings
             {
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                NullValueHandling = NullValueHandling.Ignore
             };
             return new StringContent(JsonConvert.SerializeObject(contentObject, settings), Encoding.UTF8, contentType);
         }

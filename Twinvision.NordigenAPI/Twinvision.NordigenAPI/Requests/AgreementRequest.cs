@@ -11,10 +11,10 @@ namespace Twinvision.NordigenAPI.Requests
         public string InstitutionId { get; set; }
         
         [JsonProperty("max_historical_days")]
-        public string MaxHistoricalDays { get; set; }
+        public int MaxHistoricalDays { get; set; }
 
         [JsonProperty("access_valid_for_days")]
-        public string AccessValidForDays { get; set; }
+        public int AccessValidForDays { get; set; }
 
         [JsonProperty("access_scope")]
         public string[] AccessScope { get; set; }

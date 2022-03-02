@@ -5,22 +5,10 @@ using System.Text;
 
 namespace Twinvision.NordigenAPI.Responses
 {
-    public sealed class RequisitionStatus
-    {
-        [JsonProperty("short")]
-        public string Short { get; set; }
-
-        [JsonProperty("long")]
-        public string Long { get; set; }
-
-        [JsonProperty("description")]
-        public string Description { get; set; }
-    }
-
     public sealed class Requisition
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         [JsonProperty("created")]
         public DateTime Created { get; set; }
@@ -29,13 +17,13 @@ namespace Twinvision.NordigenAPI.Responses
         public string Redirect { get; set; }
 
         [JsonProperty("status")]
-        public RequisitionStatus Status { get; set; }
+        public string Status { get; set; }
 
         [JsonProperty("institution_id")]
         public string InstitutionId { get; set; }
 
         [JsonProperty("agreement")]
-        public string Agreement { get; set; }
+        public Guid? Agreement { get; set; }
 
         [JsonProperty("reference")]
         public string Reference { get; set; }
@@ -50,7 +38,7 @@ namespace Twinvision.NordigenAPI.Responses
         public string Link { get; set; }
 
         [JsonProperty("ssn")]
-        public string Ssn { get; set; }
+        public string SSN { get; set; }
 
         [JsonProperty("account_selection")]
         public bool AccountSelection { get; set; }

@@ -73,38 +73,62 @@ namespace Twinvision.Nordigen.WinformsTest
 
         private async void CreateEndUserAgreement_Click(object sender, EventArgs e)
         {
-            if(nac == null)
+            Requisition? requisition = null;
+            var institutionId = (string)Banks.SelectedItems[0].Tag;
+
+            if (nac == null)
             {
                 return;
             }
-            var agreementRequest = new AgreementRequest()
+            //var agreementRequest = new AgreementRequest()
+            //{
+            //    AccessScope = new[] { "balances", "details", "transactions" },
+            //    AccessValidForDays = 30,
+            //    InstitutionId = (string)Banks.SelectedItems[0].Tag,
+            //    MaxHistoricalDays = 180
+            //};
+            //var agreement = await nac.Agreements.CreateAgreement(agreementRequest);
+            //if (agreement == null)
+            //{
+            //    return;
+            //}
+
+            var requisitions = await nac.Requisitions.GetRequisitions();
+
+            if (requisitions.Results.FirstOrDefault(r => r.InstitutionId == institutionId) != null)
             {
-                AccessScope = new[] { "balances", "details", "transactions" },
-                AccessValidForDays = "30",
-                InstitutionId = (string)Banks.SelectedItems[0].Tag,
-                MaxHistoricalDays = "180"
-            };
-            var agreement = await nac.Agreements.CreateAgreement(agreementRequest);
-            if (agreement == null)
+                var requisitionRequest = new RequisitionRequest()
+                {
+                    InstitutionId = institutionId,
+                    //Agreement = agreement.Id,
+                    Redirect = "https://www.twinvision.nl",
+                    Reference = Guid.NewGuid().ToString(),
+                    UserLanguage = "NL",
+                    AccountSelection = false
+                };
+                requisition = await nac.Requisitions.CreateRequisition(requisitionRequest);
+            } else
             {
-                return;
+                requisition = requisitions.Results[0];
             }
-            var requisitionRequest = new RequisitionRequest()
-            {
-                InstitutionId = agreement.InstitutionId,
-                Agreement = agreement.Id,
-                Redirect = "https://www.twinvision.nl",               
-                Reference = "noref",
-                UserLanguage = "NL",
-                AccountSelection = false
-            };
-            var requisition = await nac.Requisitions.CreateRequisition(requisitionRequest);
+            RequisitionId.Text = requisition.Id.ToString();
             WebView.Url = requisition.Link;
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
             WebView.Create(WebViewContent.Handle);
+            SecretId.Text = Properties.Settings.Default.SecretId;
+            SecretKey.Text = Properties.Settings.Default.SecretKey;
+            RequisitionId.Text = Properties.Settings.Default.RequisitionId;
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.SecretId = SecretId.Text;
+            Properties.Settings.Default.SecretKey = SecretKey.Text;
+            Properties.Settings.Default.RequisitionId = RequisitionId.Text;
+            Properties.Settings.Default.Save();
         }
     }
 }

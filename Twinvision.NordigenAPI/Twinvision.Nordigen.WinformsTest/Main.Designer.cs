@@ -259,6 +259,7 @@
             this.Controls.Add(this.Banks);
             this.Name = "Main";
             this.Text = "Nordigen Transaction Browser";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
