@@ -38,6 +38,7 @@ namespace Twinvision.NordigenAPI.Handlers
             var response = await Delete($"/agreements/enduser/{id}/");
             return await NordigenAPIHelper.GetContentFromResponse<ApiCallSuccess>(response).ConfigureAwait(false);
         }
+
         public async Task<Agreement> AcceptAgreement(Guid id, AgreementRequest agreement)
         {
             var response = await Put($"/agreements/enduser/{id}/accept/", NordigenAPIHelper.BuildContentFromObject(agreement));
