@@ -23,7 +23,8 @@ namespace Twinvision.NordigenAPI
         public string Summary { get; set; }
         [JsonProperty("detail")]
         public string Detail { get; set; }
-
+        [JsonProperty("type")]
+        public string Type { get; set; }
         [JsonProperty("status_code")]
         public string StatusCode { get; set; }
     }

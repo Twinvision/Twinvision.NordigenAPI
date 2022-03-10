@@ -21,12 +21,11 @@ namespace Twinvision.NordigenAPI.Test
         }
 
         [TestMethod]
-        public async Task ListAccounts()
+        public async Task ListAccountMetaData()
         {
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
-            var result = await nac.Accounts.GetAccounts("");
+            var result = await nac.Accounts.GetAcountMetaData("");
 
-            Assert.IsTrue(result.Length > 0);
         }
 
         [TestMethod]
@@ -44,7 +43,7 @@ namespace Twinvision.NordigenAPI.Test
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
             var result = await nac.Accounts.GetAccountTransactions("nl");
 
-            Assert.IsTrue(result.Length > 0);
+            Assert.IsTrue(result.Transactions.Booked.Count > 0);
         }     
     }
 }

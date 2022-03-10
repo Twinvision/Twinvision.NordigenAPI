@@ -9,10 +9,10 @@ namespace Twinvision.NordigenAPI.Handlers
 {
     public sealed class Accounts : NordigenApiHttpRequestHandler
     {
-        public async Task<Accounts[]> GetAccounts(string id)
+        public async Task<Account> GetAcountMetaData(string id)
         {
-            var response = await Get($"/accounts/{id}");
-            return await NordigenAPIHelper.GetContentFromResponse<Accounts[]>(response).ConfigureAwait(false);
+            var response = await Get($"/accounts/{id}/");
+            return await NordigenAPIHelper.GetContentFromResponse<Account>(response).ConfigureAwait(false);
         }
 
         public async Task<Accounts[]> GetAccountBalances(string id)
@@ -26,10 +26,10 @@ namespace Twinvision.NordigenAPI.Handlers
             var response = await Get($"/accounts/{id}/details/");
             return await NordigenAPIHelper.GetContentFromResponse<Accounts[]>(response).ConfigureAwait(false);
         }
-        public async Task<Accounts[]> GetAccountTransactions(string id)
+        public async Task<Transaction> GetAccountTransactions(string id)
         {
             var response = await Get($"/accounts/{id}/transactions/");
-            return await NordigenAPIHelper.GetContentFromResponse<Accounts[]>(response).ConfigureAwait(false);
+            return await NordigenAPIHelper.GetContentFromResponse<Transaction>(response).ConfigureAwait(false);
         }
 
 

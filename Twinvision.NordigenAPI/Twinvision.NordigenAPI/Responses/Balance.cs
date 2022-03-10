@@ -6,7 +6,14 @@ using Newtonsoft.Json;
 
 namespace Twinvision.NordigenAPI.Responses
 {
-    public sealed class Balance
+
+    public class Balance
+    {
+        [JsonProperty("balances")]
+        public List<BalanceData> Balances { get; set; }
+    }
+
+    public sealed class BalanceData
     {
         [JsonProperty("balanceAmount")]
         public BalanceAmount BalanceAmount { get; set; }
@@ -17,24 +24,13 @@ namespace Twinvision.NordigenAPI.Responses
         [JsonProperty("referenceDate")]
         public string ReferenceDate { get; set; }
 
-
-        public class Root
-        {
-            [JsonProperty("balances")]
-            public List<Balance> Balances { get; set; }
-        }
     }
     public class BalanceAmount
     {
         [JsonProperty("amount")]
-        public string Amount { get; set; }
+        public decimal Amount { get; set; }
 
         [JsonProperty("currency")]
         public string Currency { get; set; }
-    }
-    public class Root
-    {
-        [JsonProperty("balances")]
-        public List<Balance> Balances { get; set; }
     }
 }

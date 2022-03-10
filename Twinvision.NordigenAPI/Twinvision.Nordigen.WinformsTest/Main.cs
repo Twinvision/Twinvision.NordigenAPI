@@ -2,6 +2,8 @@ using Twinvision.NordigenAPI;
 using Twinvision.NordigenAPI.Responses;
 using System.Linq;
 using Twinvision.NordigenAPI.Requests;
+using System.ComponentModel;
+using Twinvision.NordigenAPI.Core;
 
 namespace Twinvision.Nordigen.WinformsTest
 {
@@ -9,6 +11,7 @@ namespace Twinvision.Nordigen.WinformsTest
     {
         private HttpClient client = new HttpClient();
         private Dictionary<string, string> countries = new Dictionary<string, string>();
+        private Dictionary<string, string> accounts = new Dictionary<string, string>();
 
         private List<Institution> institutions = new List<Institution>();
 
@@ -24,6 +27,10 @@ namespace Twinvision.Nordigen.WinformsTest
             Countries.DataSource = countries.ToList();
             Countries.ValueMember = "Key";
             Countries.DisplayMember = "Value";
+
+            FromDate.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddMonths(-1);
+            ToDate.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(-1);
+
         }
 
         private async void ListBanks_Click(object sender, EventArgs e)
@@ -107,20 +114,45 @@ namespace Twinvision.Nordigen.WinformsTest
                     AccountSelection = false
                 };
                 requisition = await nac.Requisitions.CreateRequisition(requisitionRequest);
-            } else
+            }
+            else
             {
                 requisition = requisitions.Results[0];
             }
             RequisitionId.Text = requisition.Id.ToString();
             WebView.Url = requisition.Link;
+            await LoadAccounts();
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private async Task LoadAccounts()
+        {
+            accounts.Clear();
+            if(nac == null)
+            {
+                nac = new NordigenAPICaller(SecretId.Text, SecretKey.Text);
+            }
+            if(String.IsNullOrWhiteSpace(RequisitionId.Text))
+            {
+                return;
+            }
+            var requisitionAccounts = await nac.Requisitions.GetRequisition(Guid.Parse(RequisitionId.Text));
+            foreach (var accountId in requisitionAccounts.Accounts)
+            {
+                var account = await nac.Accounts.GetAcountMetaData(accountId);
+                accounts.Add(accountId, account.Iban);
+            }
+            Accounts.DataSource = accounts.ToList();
+            Accounts.ValueMember = "Key";
+            Accounts.DisplayMember = "Value";
+        }
+
+        private async void Main_Load(object sender, EventArgs e)
         {
             WebView.Create(WebViewContent.Handle);
             SecretId.Text = Properties.Settings.Default.SecretId;
             SecretKey.Text = Properties.Settings.Default.SecretKey;
             RequisitionId.Text = Properties.Settings.Default.RequisitionId;
+            await LoadAccounts();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -129,6 +161,43 @@ namespace Twinvision.Nordigen.WinformsTest
             Properties.Settings.Default.SecretKey = SecretKey.Text;
             Properties.Settings.Default.RequisitionId = RequisitionId.Text;
             Properties.Settings.Default.Save();
+        }
+
+        private void RequisitionId_TextChanged(object sender, EventArgs e)
+        {
+            Accounts.Enabled = !String.IsNullOrWhiteSpace(RequisitionId.Text);
+        }
+
+        private async void ListAccounts_Click(object sender, EventArgs e)
+        {
+            await LoadAccounts();
+        }
+
+        private async void ListTransactionDetails_Click(object sender, EventArgs e)
+        {
+            if (nac == null)
+            {
+                nac = new NordigenAPICaller(SecretId.Text, SecretKey.Text);
+            }
+            var transactions = await nac.Accounts.GetAccountTransactions(Accounts.SelectedValue.ToString());
+            TransactionDetails.DataSource = new SortableBindingList<Booked>(transactions.Transactions.Booked);
+            TabControl.SelectedTab = TabPageTransactionDetails;
+        }
+
+        private void TransactionDetails_SelectionChanged(object sender, EventArgs e)
+        {
+            if(TransactionDetails.SelectedCells.Count > 0)
+            {
+                PropertyGrid.SelectedObject = TransactionDetails.SelectedCells[0].Value;
+            } else
+            {
+                PropertyGrid.SelectedObject = null;
+            }
+        }
+
+        private void TransactionDetails_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //TransactionDetails.Sort(TransactionDetails.Columns["BookingDate"], System.ComponentModel.ListSortDirection.Ascending);
         }
     }
 }
