@@ -102,7 +102,7 @@ namespace Twinvision.Nordigen.WinformsTest
 
             var requisitions = await nac.Requisitions.GetRequisitions();
 
-            if (requisitions.Results.FirstOrDefault(r => r.InstitutionId == institutionId) != null)
+            if (requisitions.Results.FirstOrDefault(r => r.InstitutionId == institutionId) == null)
             {
                 var requisitionRequest = new RequisitionRequest()
                 {
