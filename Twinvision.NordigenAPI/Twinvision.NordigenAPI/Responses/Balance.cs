@@ -6,23 +6,40 @@ using Newtonsoft.Json;
 
 namespace Twinvision.NordigenAPI.Responses
 {
+    public enum BalanceType : int
+    {
+        [JsonProperty("closingBooked")]
+        ClosingBooked,
+        [JsonProperty("expected")]
+        Excepected,
+        [JsonProperty("forwardAvailable")]
+        ForwardAvailable,
+        [JsonProperty("interimAvailable")]
+        InterimAvailable,
+        [JsonProperty("interimBooked")]
+        InteremBooked,
+        [JsonProperty("nonInvoiced")]
+        NonInvoiced,
+        [JsonProperty("openingBooked")]
+        OpeningBooked
+    }
 
     public class Balance
     {
         [JsonProperty("balances")]
-        public List<BalanceData> Balances { get; set; }
+        public List<BalanceLine> Balances { get; set; }
     }
 
-    public sealed class BalanceData
+    public sealed class BalanceLine
     {
         [JsonProperty("balanceAmount")]
         public BalanceAmount BalanceAmount { get; set; }
 
         [JsonProperty("balanceType")]
-        public string BalanceType { get; set; }
+        public BalanceType BalanceType { get; set; }
 
         [JsonProperty("referenceDate")]
-        public string ReferenceDate { get; set; }
+        public DateTime ReferenceDate { get; set; }
 
     }
     public class BalanceAmount

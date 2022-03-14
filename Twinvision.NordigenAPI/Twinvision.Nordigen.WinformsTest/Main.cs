@@ -180,8 +180,10 @@ namespace Twinvision.Nordigen.WinformsTest
                 nac = new NordigenAPICaller(SecretId.Text, SecretKey.Text);
             }
             var transactions = await nac.Accounts.GetAccountTransactions(Accounts.SelectedValue.ToString());
-            TransactionDetails.DataSource = new SortableBindingList<Booked>(transactions.Transactions.Booked);
+            TransactionDetails.DataSource = new SortableBindingList<TransactionLine>(transactions.Transactions.Booked);
             TabControl.SelectedTab = TabPageTransactionDetails;
+
+            var result = nac.Accounts.GetAccountBalances(Accounts.SelectedValue.ToString());
         }
 
         private void TransactionDetails_SelectionChanged(object sender, EventArgs e)

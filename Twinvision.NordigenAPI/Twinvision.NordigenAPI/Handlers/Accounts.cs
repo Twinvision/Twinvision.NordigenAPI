@@ -15,16 +15,16 @@ namespace Twinvision.NordigenAPI.Handlers
             return await NordigenAPIHelper.GetContentFromResponse<Account>(response).ConfigureAwait(false);
         }
 
-        public async Task<Accounts[]> GetAccountBalances(string id)
+        public async Task<Balance> GetAccountBalances(string id)
         {
             var response = await Get($"/accounts/{id}/balances/");
-            return await NordigenAPIHelper.GetContentFromResponse<Accounts[]>(response).ConfigureAwait(false);
+            return await NordigenAPIHelper.GetContentFromResponse<Balance>(response).ConfigureAwait(false);
         }
 
-        public async Task<Accounts[]> GetAccountDetails(string id)
+        public async Task<AccountDetail> GetAccountDetails(string id)
         {
             var response = await Get($"/accounts/{id}/details/");
-            return await NordigenAPIHelper.GetContentFromResponse<Accounts[]>(response).ConfigureAwait(false);
+            return await NordigenAPIHelper.GetContentFromResponse<AccountDetail>(response).ConfigureAwait(false);
         }
         public async Task<Transaction> GetAccountTransactions(string id)
         {
