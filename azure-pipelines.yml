@@ -1,0 +1,47 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: '5.8.0'
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: CmdLine@2
+  inputs:
+    workingDirectory: 'Twinvision.BolRetailerApi.Test'
+    script: 'dotnet user-secrets set secretId 1f92b06c-5826-4b22-95ef-df35982d6096'
+
+- task: CmdLine@2
+  inputs:
+    workingDirectory: 'Twinvision.BolRetailerApi.Test'
+    script: 'dotnet user-secrets set secretKey e8c5d4e8ca2392d6eda0a773c3c7a9f00cd986440c4b2fc5b2471c2461cde50b19a9cd63de504cdc8a57eccdbc6189ebc17ea68d64a6e5b27a3632506327d364'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*Test/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
