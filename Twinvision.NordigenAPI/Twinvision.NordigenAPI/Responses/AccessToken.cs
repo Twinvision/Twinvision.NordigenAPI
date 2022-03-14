@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Twinvision.NordigenAPI.Responses
+namespace Twinvision.NordigenApi.Responses
 {
     public class AccessToken
     {

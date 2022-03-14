@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Twinvision.NordigenAPI.Test
+namespace Twinvision.NordigenApi.Test
 {
     [TestClass]
     public class Institutions : TestBase
@@ -14,7 +14,7 @@ namespace Twinvision.NordigenAPI.Test
         [TestMethod]
         public async Task ListInstitutionsNL()
         {
-            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
             var result = await nac.Institutions.GetInstitutions("");
 
             Assert.IsTrue(result.Length > 0);
@@ -23,7 +23,7 @@ namespace Twinvision.NordigenAPI.Test
         [TestMethod]
         public async Task ListInstitutionN26_NTSBDEB1()
         {
-            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
             var result = await nac.Institutions.GetInstitution("N26_NTSBDEB1");
 
             Assert.IsTrue(result.BIC == "NTSBDEB1");

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Twinvision.NordigenAPI.Requests;
+using Twinvision.NordigenApi.Requests;
 
-namespace Twinvision.NordigenAPI.Test
+namespace Twinvision.NordigenApi.Test
 {
     [TestClass]
     public class Requisitions : TestBase
@@ -15,7 +15,7 @@ namespace Twinvision.NordigenAPI.Test
         [TestMethod]
         public async Task ListRequisitionsAndGetRequisition()
         {
-            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
             var requisitions = await nac.Requisitions.GetRequisitions();
 
             Assert.IsTrue(requisitions.Results.Length > 0);
@@ -27,7 +27,7 @@ namespace Twinvision.NordigenAPI.Test
         [TestMethod]
         public async Task CreateAndDeleteRequisition()
         {
-            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
             var requisitionRequest = new RequisitionRequest()
             {
                 InstitutionId = "SANDBOXFINANCE_SFIN0000",

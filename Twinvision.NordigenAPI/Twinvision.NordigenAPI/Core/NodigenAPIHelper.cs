@@ -13,12 +13,12 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Twinvision.NordigenAPI
+namespace Twinvision.NordigenApi
 {
     /// <summary>
     /// A helper containing functions which are used throughout the project.
     /// </summary>
-    internal static class NordigenAPIHelper
+    internal static class NordigenApiHelper
     {
         /// <summary>
         /// Converts an object into json serialized httpcontent

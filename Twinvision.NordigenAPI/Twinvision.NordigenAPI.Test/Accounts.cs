@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Twinvision.NordigenAPI.Test
+namespace Twinvision.NordigenApi.Test
 {
     [TestClass]
     public class Accounts : TestBase
@@ -14,7 +14,7 @@ namespace Twinvision.NordigenAPI.Test
         [TestMethod]
         public async Task ListAccountsDetails()
         {
-            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
             var result = await nac.Accounts.GetAccountDetails("");
 
             Assert.IsTrue(result.Account != null);
@@ -23,7 +23,7 @@ namespace Twinvision.NordigenAPI.Test
         [TestMethod]
         public async Task ListAccountMetaData()
         {
-            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
             var result = await nac.Accounts.GetAcountMetaData("");
 
         }
@@ -31,7 +31,7 @@ namespace Twinvision.NordigenAPI.Test
         [TestMethod]
         public async Task ListAccountBalances()
         {
-            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
             var result = await nac.Accounts.GetAccountBalances("");
 
             Assert.IsTrue(result.Balances != null);
@@ -40,7 +40,7 @@ namespace Twinvision.NordigenAPI.Test
         [TestMethod]
         public async Task ListAccountTransactions()
         {
-            var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
             var result = await nac.Accounts.GetAccountTransactions("nl");
 
             Assert.IsTrue(result.Transactions.Booked != null && result.Transactions.Booked.Count > 0);

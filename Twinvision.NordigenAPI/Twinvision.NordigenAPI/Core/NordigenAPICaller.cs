@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Twinvision.NordigenAPI.Handlers;
+using Twinvision.NordigenApi.Handlers;
 
-namespace Twinvision.NordigenAPI
+namespace Twinvision.NordigenApi
 {
-    public sealed class NordigenAPICaller
+    public sealed class NordigenApiCaller
     {
         public Institutions Institutions { get; }
         public Accounts Accounts { get; }
@@ -16,7 +16,7 @@ namespace Twinvision.NordigenAPI
         /// </summary>
         /// <param name="secretId">The api secretId required for authorization, requestable from the Nordigen website.</param>
         /// <param name="secretKey">The api secretKey required for authorization, requestable from the Nordigen website .</param>
-        public NordigenAPICaller(string secretId, string secretKey)
+        public NordigenApiCaller(string secretId, string secretKey)
         {
             Task.Run(() => NordigenApiHttpRequestHandler.Initialize(secretId, secretKey)).Wait();
 

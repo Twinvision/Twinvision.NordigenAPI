@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Twinvision.NordigenAPI
+namespace Twinvision.NordigenApi
 {
     /// <summary>
     /// Class containing constant values for often used acceptheaders

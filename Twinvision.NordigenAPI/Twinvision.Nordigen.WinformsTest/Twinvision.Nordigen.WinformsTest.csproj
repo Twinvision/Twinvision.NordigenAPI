@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Twinvision.NordigenAPI\Twinvision.NordigenAPI.csproj" />
+    <ProjectReference Include="..\Twinvision.NordigenAPI\Twinvision.NordigenApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>

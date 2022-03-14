@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Twinvision.NordigenAPI.Responses;
+using Twinvision.NordigenApi.Responses;
 
-namespace Twinvision.NordigenAPI.Handlers
+namespace Twinvision.NordigenApi.Handlers
 {
     public sealed class Institutions : NordigenApiHttpRequestHandler
     {
@@ -16,12 +16,12 @@ namespace Twinvision.NordigenAPI.Handlers
                 { "country", countryCode }
             };
             var response = await Get("/institutions/", parameters);
-            return await NordigenAPIHelper.GetContentFromResponse<Institution[]>(response).ConfigureAwait(false);
+            return await NordigenApiHelper.GetContentFromResponse<Institution[]>(response).ConfigureAwait(false);
         }
         public async Task<Institution> GetInstitution(string id)
         {
             var response = await Get($"/institutions/{id}/");
-            return await NordigenAPIHelper.GetContentFromResponse<Institution>(response).ConfigureAwait(false);
+            return await NordigenApiHelper.GetContentFromResponse<Institution>(response).ConfigureAwait(false);
         }
     }
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Twinvision.NordigenAPI.Requests;
-using Twinvision.NordigenAPI.Responses;
+using Twinvision.NordigenApi.Requests;
+using Twinvision.NordigenApi.Responses;
 
-namespace Twinvision.NordigenAPI.Handlers
+namespace Twinvision.NordigenApi.Handlers
 {
     public sealed class Requisitions : NordigenApiHttpRequestHandler
     {
@@ -18,13 +18,13 @@ namespace Twinvision.NordigenAPI.Handlers
                 { "offset", offset.ToString() }
             };
             var response = await Get("/requisitions/", parameters);
-            return await NordigenAPIHelper.GetContentFromResponse<PagedResponse<Requisition>>(response).ConfigureAwait(false);
+            return await NordigenApiHelper.GetContentFromResponse<PagedResponse<Requisition>>(response).ConfigureAwait(false);
         }
 
         public async Task<Requisition> CreateRequisition(RequisitionRequest requisition)
         {        
-            var response = await Post("/requisitions/", NordigenAPIHelper.BuildContentFromObject(requisition));
-            return await NordigenAPIHelper.GetContentFromResponse<Requisition>(response).ConfigureAwait(false);
+            var response = await Post("/requisitions/", NordigenApiHelper.BuildContentFromObject(requisition));
+            return await NordigenApiHelper.GetContentFromResponse<Requisition>(response).ConfigureAwait(false);
         }
 
         //public async Task<Requisition> PostRequisitionLink(string institution_id, string redirect)
@@ -41,13 +41,13 @@ namespace Twinvision.NordigenAPI.Handlers
         public async Task<Requisition> GetRequisition(Guid id)
         {
             var response = await Get($"/requisitions/{id}/");
-            return await NordigenAPIHelper.GetContentFromResponse<Requisition>(response).ConfigureAwait(false);
+            return await NordigenApiHelper.GetContentFromResponse<Requisition>(response).ConfigureAwait(false);
         }
 
         public async Task<ApiCallSuccess> DeleteRequisition(Guid id)
         {
             var response = await Delete($"/requisitions/{id}/");
-            return await NordigenAPIHelper.GetContentFromResponse<ApiCallSuccess>(response).ConfigureAwait(false);
+            return await NordigenApiHelper.GetContentFromResponse<ApiCallSuccess>(response).ConfigureAwait(false);
         }
     }
 }

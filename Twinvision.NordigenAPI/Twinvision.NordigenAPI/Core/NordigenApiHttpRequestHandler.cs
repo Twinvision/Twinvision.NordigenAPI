@@ -7,11 +7,11 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Twinvision.NordigenAPI;
-using Twinvision.NordigenAPI.Requests;
-using Twinvision.NordigenAPI.Responses;
+using Twinvision.NordigenApi;
+using Twinvision.NordigenApi.Requests;
+using Twinvision.NordigenApi.Responses;
 
-namespace Twinvision.NordigenAPI
+namespace Twinvision.NordigenApi
 {
     /// <summary>
     /// Class used to standardize api request calls to Nordigen.

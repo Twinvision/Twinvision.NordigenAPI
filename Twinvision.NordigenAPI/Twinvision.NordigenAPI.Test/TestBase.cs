@@ -2,9 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Threading.Tasks;
-using Twinvision.NordigenAPI.Handlers;
+using Twinvision.NordigenApi.Handlers;
 
-namespace Twinvision.NordigenAPI.Test
+namespace Twinvision.NordigenApi.Test
 {
     [TestClass]
     public abstract class TestBase
@@ -19,7 +19,6 @@ namespace Twinvision.NordigenAPI.Test
         {
             var builder = new ConfigurationBuilder()
             .AddUserSecrets<TestBase>();
-
             Configuration = builder.Build();
 
             TestSecretId = Configuration["secretId"];

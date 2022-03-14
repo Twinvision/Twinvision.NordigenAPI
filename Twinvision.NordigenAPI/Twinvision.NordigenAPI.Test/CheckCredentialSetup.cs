@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Twinvision.NordigenAPI.Test
+namespace Twinvision.NordigenApi.Test
 {
     [TestClass]
     public class CheckCredentialsSetup : TestBase

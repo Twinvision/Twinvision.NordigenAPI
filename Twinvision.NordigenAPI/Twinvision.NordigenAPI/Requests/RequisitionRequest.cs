@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Twinvision.NordigenAPI.Requests
+namespace Twinvision.NordigenApi.Requests
 {
     public sealed class RequisitionRequest
     {

@@ -1,7 +1,7 @@
-using Twinvision.NordigenAPI;
-using Twinvision.NordigenAPI.Responses;
+using Twinvision.NordigenApi;
+using Twinvision.NordigenApi.Responses;
 using System.Linq;
-using Twinvision.NordigenAPI.Requests;
+using Twinvision.NordigenApi.Requests;
 using System.ComponentModel;
 
 namespace Twinvision.Nordigen.WinformsTest
@@ -14,7 +14,7 @@ namespace Twinvision.Nordigen.WinformsTest
 
         private List<Institution> institutions = new List<Institution>();
 
-        private NordigenAPICaller? nac = null;
+        private NordigenApiCaller? nac = null;
 
         public Main()
         {
@@ -35,7 +35,7 @@ namespace Twinvision.Nordigen.WinformsTest
         private async void ListBanks_Click(object sender, EventArgs e)
         {
             Banks.Clear();
-            nac = new NordigenAPICaller(SecretId.Text, SecretKey.Text);
+            nac = new NordigenApiCaller(SecretId.Text, SecretKey.Text);
             institutions = (await nac.Institutions.GetInstitutions((string)Countries.SelectedValue)).ToList();
             institutions.Insert(0, new Institution() { Id = "SANDBOXFINANCE_SFIN0000", Logo = "SandBoxBank", Name = "Sandbox Finance" });
             Banks.SuspendLayout();
@@ -128,7 +128,7 @@ namespace Twinvision.Nordigen.WinformsTest
             accounts.Clear();
             if(nac == null)
             {
-                nac = new NordigenAPICaller(SecretId.Text, SecretKey.Text);
+                nac = new NordigenApiCaller(SecretId.Text, SecretKey.Text);
             }
             if(String.IsNullOrWhiteSpace(RequisitionId.Text))
             {
@@ -176,7 +176,7 @@ namespace Twinvision.Nordigen.WinformsTest
         {
             if (nac == null)
             {
-                nac = new NordigenAPICaller(SecretId.Text, SecretKey.Text);
+                nac = new NordigenApiCaller(SecretId.Text, SecretKey.Text);
             }
             var transactions = await nac.Accounts.GetAccountTransactions(Accounts.SelectedValue.ToString());
             TransactionDetails.DataSource = transactions.Transactions.Booked;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Twinvision.NordigenAPI
+namespace Twinvision.NordigenApi
 {
     public sealed class NordigenApiException : Exception
     {

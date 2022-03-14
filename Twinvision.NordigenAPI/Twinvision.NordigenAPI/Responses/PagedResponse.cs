@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Twinvision.NordigenAPI.Responses
+namespace Twinvision.NordigenApi.Responses
 {
     public sealed class PagedResponse<T>
     {
