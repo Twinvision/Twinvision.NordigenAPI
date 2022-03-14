@@ -17,7 +17,7 @@ namespace Twinvision.NordigenAPI.Test
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
             var result = await nac.Accounts.GetAccountDetails("");
 
-            Assert.IsTrue(result.Length > 0);
+            Assert.IsTrue(result.Account != null);
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace Twinvision.NordigenAPI.Test
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
             var result = await nac.Accounts.GetAccountBalances("");
 
-            Assert.IsTrue(result.Length > 0);
+            Assert.IsTrue(result.Balances != null);
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@ namespace Twinvision.NordigenAPI.Test
             var nac = new NordigenAPICaller(TestSecretId, TestSecretKey);
             var result = await nac.Accounts.GetAccountTransactions("nl");
 
-            Assert.IsTrue(result.Transactions.Booked.Count > 0);
+            Assert.IsTrue(result.Transactions.Booked != null && result.Transactions.Booked.Count > 0);
         }     
     }
 }
