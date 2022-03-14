@@ -3,7 +3,6 @@ using Twinvision.NordigenAPI.Responses;
 using System.Linq;
 using Twinvision.NordigenAPI.Requests;
 using System.ComponentModel;
-using Twinvision.NordigenAPI.Core;
 
 namespace Twinvision.Nordigen.WinformsTest
 {
@@ -180,7 +179,7 @@ namespace Twinvision.Nordigen.WinformsTest
                 nac = new NordigenAPICaller(SecretId.Text, SecretKey.Text);
             }
             var transactions = await nac.Accounts.GetAccountTransactions(Accounts.SelectedValue.ToString());
-            TransactionDetails.DataSource = new SortableBindingList<TransactionLine>(transactions.Transactions.Booked);
+            TransactionDetails.DataSource = transactions.Transactions.Booked;
             TabControl.SelectedTab = TabPageTransactionDetails;
 
             var result = nac.Accounts.GetAccountBalances(Accounts.SelectedValue.ToString());
