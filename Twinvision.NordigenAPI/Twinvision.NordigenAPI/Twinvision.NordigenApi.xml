@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Twinvision.NordigenApi</name>
+    </assembly>
+    <members>
+        <member name="T:Twinvision.NordigenApi.AcceptHeaders">
+            <summary>
+            Class containing constant values for often used acceptheaders
+            </summary>
+        </member>
+        <member name="T:Twinvision.NordigenApi.NordigenApiHelper">
+            <summary>
+            A helper containing functions which are used throughout the project.
+            </summary>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiHelper.BuildContentFromObject(System.Object,System.String)">
+            <summary>
+            Converts an object into json serialized httpcontent
+            </summary>
+            <param name="contentObject">The object to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiHelper.GetContentFromResponse``1(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Takes the content of a HttpResponseMessage and converts it into an object of type T
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="response">A HttpResponseMessage containing json</param>
+            <returns></returns>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiCaller.#ctor(System.String,System.String)">
+            <summary>
+            Constructor used to create an instance of the NordigenAPICaller
+            </summary>
+            <param name="secretId">The api secretId required for authorization, requestable from the Nordigen website.</param>
+            <param name="secretKey">The api secretKey required for authorization, requestable from the Nordigen website .</param>
+        </member>
+        <member name="T:Twinvision.NordigenApi.NordigenApiHttpRequestHandler">
+            <summary>
+            Class used to standardize api request calls to Nordigen.
+            </summary>
+        </member>
+        <member name="F:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.ApiUrl">
+            <summary>
+            The api base url.
+            </summary>
+        </member>
+        <member name="F:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.ClientId">
+            <summary>
+            The client Id used for authentication.
+            </summary>
+        </member>
+        <member name="F:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.ClientSecret">
+            <summary>
+            The client Server used for authentication.
+            </summary>
+        </member>
+        <member name="F:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.Authorization">
+            <summary>
+            Object containing authorization details making it possible to reauthorize automatically when authorization is expired.
+            </summary>
+        </member>
+        <member name="P:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.httpClient">
+            <summary>
+            HttpClient instance used by all HTTP requests.
+            </summary>
+        </member>
+        <member name="P:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.HttpClient">
+            <summary>
+            Property facilitating singular initialization for the private httpClient
+            </summary>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.Initialize(System.String,System.String)">
+            <summary>
+            Function which initializes the httpRequestHandler
+            </summary>
+            <param name="clientId">The client Id used for authentication.</param>
+            <param name="clientSecret">The client Secret used for authentication.</param>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.GetAuthorization(System.String,System.String)">
+            <summary>
+            Performs a post request to the Nordigen api trying to authorize with the supplied client id and secret
+            </summary>
+            <param name="clientId">The client Id used for authentication.</param>
+            <param name="clientSecret">The client Secret used for authentication.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.Post(System.String,System.Net.Http.HttpContent,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Performs a post request filled with the given arguments.
+            </summary>
+            <param name="path">The end of the FullPath</param>
+            <param name="content">The content which gets send</param>
+            <param name="queryParameters">The parameters which get inserted as a query string</param>
+            <param name="acceptHeader">The acceptheader</param>
+            <returns>A promise of a HttpResponseMessage</returns>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.Get(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Performs a get request filled with the given arguments.
+            </summary>
+            <param name="path">The end of the FullPath</param>
+            <param name="queryParameters">The parameters which get inserted as a query string</param>
+            <param name="acceptHeader">The acceptheader</param>
+            <returns>A promise of a HttpResponseMessage</returns>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.Put(System.String,System.Net.Http.HttpContent,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Performs a put request filled with the given arguments.
+            </summary>
+            <param name="path">The end of the FullPath</param>
+            <param name="content">The content which gets send</param>
+            <param name="queryParameters">The parameters which get inserted as a query string</param>
+            <param name="acceptHeader">The acceptheader</param>
+            <returns>A promise of a HttpResponseMessage</returns>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.Delete(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Performs a delete request filled with the given arguments.
+            </summary>
+            <param name="path">The end of the FullPath</param>
+            <param name="queryParameters">The parameters which get inserted as a query string</param>
+            <param name="acceptHeader">The acceptheader</param>
+            <returns>A promise of a HttpResponseMessage</returns>
+        </member>
+        <member name="M:Twinvision.NordigenApi.NordigenApiHttpRequestHandler.ApiHttpRequest(System.String,System.Func{System.Uri,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Standardized function for performing HttpRequests.
+            Allows for injection of the final request making it possible to fire 'POST','GET','PUT' and 'DELETE' requests through this one function.
+            </summary>
+            <param name="path">The end of the FullPath</param>
+            <param name="httpRequest">A function requiring manual firing and returning of the prefered HttpRequest</param>
+            <param name="queryParameters">The parameters which get inserted as a query string</param>
+            <param name="acceptHeader">The acceptheader</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
