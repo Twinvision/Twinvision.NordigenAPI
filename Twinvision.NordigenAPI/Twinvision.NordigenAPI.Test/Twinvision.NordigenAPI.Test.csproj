@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Twinvision.Nordigen.Api\Twinvision.NordigenApi.csproj" />
     <ProjectReference Include="..\Twinvision.NordigenAPI\Twinvision.NordigenApi.csproj" />
   </ItemGroup>
 

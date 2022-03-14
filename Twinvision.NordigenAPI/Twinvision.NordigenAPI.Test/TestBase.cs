@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Threading.Tasks;
-using Twinvision.NordigenApi.Handlers;
 
 namespace Twinvision.NordigenApi.Test
 {

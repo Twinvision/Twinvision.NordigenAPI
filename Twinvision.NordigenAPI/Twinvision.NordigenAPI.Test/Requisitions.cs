@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Twinvision.NordigenApi;
 using Twinvision.NordigenApi.Requests;
 
 namespace Twinvision.NordigenApi.Test
