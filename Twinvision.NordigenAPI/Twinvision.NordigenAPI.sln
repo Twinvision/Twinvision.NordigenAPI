@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twinvision.NordigenApi", "Twinvision.NordigenAPI\Twinvision.NordigenApi.csproj", "{732043D8-4862-4CBD-BAF4-098FD262FD12}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twinvision.NordigenApi.Test", "Twinvision.NordigenAPI.Test\Twinvision.NordigenApi.Test.csproj", "{9C7E8260-444E-4D6D-981C-A82026DFDB7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twinvision.NordigenApi.Test", "Twinvision.NordigenApi.Test\Twinvision.NordigenApi.Test.csproj", "{9C7E8260-444E-4D6D-981C-A82026DFDB7F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twinvision.Nordigen.WinformsTest", "Twinvision.Nordigen.WinformsTest\Twinvision.Nordigen.WinformsTest.csproj", "{4B10465F-A197-45A5-85E5-465B287ED818}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twinvision.NordigenApi", "Twinvision.Nordigen.Api\Twinvision.NordigenApi.csproj", "{3D8FF8C8-C178-41DB-97A6-61A7061E2157}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{732043D8-4862-4CBD-BAF4-098FD262FD12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{732043D8-4862-4CBD-BAF4-098FD262FD12}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{732043D8-4862-4CBD-BAF4-098FD262FD12}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{732043D8-4862-4CBD-BAF4-098FD262FD12}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C7E8260-444E-4D6D-981C-A82026DFDB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C7E8260-444E-4D6D-981C-A82026DFDB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C7E8260-444E-4D6D-981C-A82026DFDB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{4B10465F-A197-45A5-85E5-465B287ED818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B10465F-A197-45A5-85E5-465B287ED818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B10465F-A197-45A5-85E5-465B287ED818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D8FF8C8-C178-41DB-97A6-61A7061E2157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D8FF8C8-C178-41DB-97A6-61A7061E2157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D8FF8C8-C178-41DB-97A6-61A7061E2157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D8FF8C8-C178-41DB-97A6-61A7061E2157}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
