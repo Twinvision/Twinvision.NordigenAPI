@@ -32,12 +32,12 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    workingDirectory: 'Twinvision.NordigenApi.Test'
+    workingDirectory: 'Twinvision.NordigenApi\Twinvision.NordigenApi.Test'
     script: 'dotnet user-secrets set secretId 1f92b06c-5826-4b22-95ef-df35982d6096'
 
 - task: CmdLine@2
   inputs:
-    workingDirectory: 'Twinvision.NordigenApi.Test'
+    workingDirectory: 'Twinvision.NordigenApi\Twinvision.NordigenApi.Test'
     script: 'dotnet user-secrets set secretKey e8c5d4e8ca2392d6eda0a773c3c7a9f00cd986440c4b2fc5b2471c2461cde50b19a9cd63de504cdc8a57eccdbc6189ebc17ea68d64a6e5b27a3632506327d364'
 
 - task: DotNetCoreCLI@2
