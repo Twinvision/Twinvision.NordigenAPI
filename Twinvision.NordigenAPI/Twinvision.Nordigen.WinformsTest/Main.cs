@@ -200,5 +200,26 @@ namespace Twinvision.Nordigen.WinformsTest
         {
             //TransactionDetails.Sort(TransactionDetails.Columns["BookingDate"], System.ComponentModel.ListSortDirection.Ascending);
         }
+
+        private async void DeleteRequisition_Click(object sender, EventArgs e)
+        {
+            if (nac == null)
+            {
+                nac = new NordigenApiCaller(SecretId.Text, SecretKey.Text);
+            }
+            if (String.IsNullOrWhiteSpace(RequisitionId.Text))
+            {
+                return;
+            }
+            try
+            {
+                var result = await nac.Requisitions.DeleteRequisition(Guid.Parse(RequisitionId.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            RequisitionId.Text = "";
+        }
     }
 }

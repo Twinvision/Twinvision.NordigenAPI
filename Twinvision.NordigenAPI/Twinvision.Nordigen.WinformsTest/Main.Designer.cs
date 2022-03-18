@@ -57,6 +57,7 @@
             this.ToDate = new System.Windows.Forms.DateTimePicker();
             this.ToDateLabel = new System.Windows.Forms.Label();
             this.ListTransactionDetails = new System.Windows.Forms.Button();
+            this.DeleteRequisition = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TransactionDetails)).BeginInit();
             this.TabControl.SuspendLayout();
             this.TabPageBrowser.SuspendLayout();
@@ -72,7 +73,7 @@
             this.Banks.LargeImageList = this.BankImages;
             this.Banks.Location = new System.Drawing.Point(12, 128);
             this.Banks.Name = "Banks";
-            this.Banks.Size = new System.Drawing.Size(234, 238);
+            this.Banks.Size = new System.Drawing.Size(234, 212);
             this.Banks.TabIndex = 0;
             this.Banks.UseCompatibleStateImageBehavior = false;
             this.Banks.View = System.Windows.Forms.View.Tile;
@@ -174,7 +175,7 @@
             // CreateEndUserAgreement
             // 
             this.CreateEndUserAgreement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CreateEndUserAgreement.Location = new System.Drawing.Point(16, 375);
+            this.CreateEndUserAgreement.Location = new System.Drawing.Point(16, 346);
             this.CreateEndUserAgreement.Name = "CreateEndUserAgreement";
             this.CreateEndUserAgreement.Size = new System.Drawing.Size(234, 23);
             this.CreateEndUserAgreement.TabIndex = 4;
@@ -185,7 +186,7 @@
             // RequisitionId
             // 
             this.RequisitionId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RequisitionId.Location = new System.Drawing.Point(118, 404);
+            this.RequisitionId.Location = new System.Drawing.Point(114, 375);
             this.RequisitionId.Name = "RequisitionId";
             this.RequisitionId.ReadOnly = true;
             this.RequisitionId.Size = new System.Drawing.Size(132, 23);
@@ -195,7 +196,7 @@
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.Location = new System.Drawing.Point(16, 407);
+            this.label1.Location = new System.Drawing.Point(12, 378);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 15);
             this.label1.TabIndex = 7;
@@ -335,6 +336,17 @@
             this.ListTransactionDetails.UseVisualStyleBackColor = true;
             this.ListTransactionDetails.Click += new System.EventHandler(this.ListTransactionDetails_Click);
             // 
+            // DeleteRequisition
+            // 
+            this.DeleteRequisition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DeleteRequisition.Location = new System.Drawing.Point(16, 404);
+            this.DeleteRequisition.Name = "DeleteRequisition";
+            this.DeleteRequisition.Size = new System.Drawing.Size(234, 23);
+            this.DeleteRequisition.TabIndex = 11;
+            this.DeleteRequisition.Text = "Delete active requisition";
+            this.DeleteRequisition.UseVisualStyleBackColor = true;
+            this.DeleteRequisition.Click += new System.EventHandler(this.DeleteRequisition_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -345,6 +357,7 @@
             this.Controls.Add(this.ToDate);
             this.Controls.Add(this.FromDate);
             this.Controls.Add(this.ListTransactionDetails);
+            this.Controls.Add(this.DeleteRequisition);
             this.Controls.Add(this.ListAccounts);
             this.Controls.Add(this.AccountsLabel);
             this.Controls.Add(this.Accounts);
@@ -404,5 +417,6 @@
         private DateTimePicker ToDate;
         private Label ToDateLabel;
         private Button ListTransactionDetails;
+        private Button DeleteRequisition;
     }
 }
