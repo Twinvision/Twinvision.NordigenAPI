@@ -46,9 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.TabPageBrowser = new System.Windows.Forms.TabPage();
-            this.WebViewContent = new System.Windows.Forms.PictureBox();
             this.TabPageTransactionDetails = new System.Windows.Forms.TabPage();
-            this.WebView = new EO.WebBrowser.WebView();
             this.AccountsLabel = new System.Windows.Forms.Label();
             this.Accounts = new System.Windows.Forms.ComboBox();
             this.ListAccounts = new System.Windows.Forms.Button();
@@ -60,8 +58,6 @@
             this.DeleteRequisition = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TransactionDetails)).BeginInit();
             this.TabControl.SuspendLayout();
-            this.TabPageBrowser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WebViewContent)).BeginInit();
             this.TabPageTransactionDetails.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -218,7 +214,6 @@
             // 
             // TabPageBrowser
             // 
-            this.TabPageBrowser.Controls.Add(this.WebViewContent);
             this.TabPageBrowser.Location = new System.Drawing.Point(4, 24);
             this.TabPageBrowser.Name = "TabPageBrowser";
             this.TabPageBrowser.Padding = new System.Windows.Forms.Padding(3);
@@ -226,15 +221,6 @@
             this.TabPageBrowser.TabIndex = 0;
             this.TabPageBrowser.Text = "Browser";
             this.TabPageBrowser.UseVisualStyleBackColor = true;
-            // 
-            // WebViewContent
-            // 
-            this.WebViewContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WebViewContent.Location = new System.Drawing.Point(3, 3);
-            this.WebViewContent.Name = "WebViewContent";
-            this.WebViewContent.Size = new System.Drawing.Size(352, 528);
-            this.WebViewContent.TabIndex = 0;
-            this.WebViewContent.TabStop = false;
             // 
             // TabPageTransactionDetails
             // 
@@ -246,13 +232,6 @@
             this.TabPageTransactionDetails.TabIndex = 1;
             this.TabPageTransactionDetails.Text = "Transaction details";
             this.TabPageTransactionDetails.UseVisualStyleBackColor = true;
-            // 
-            // WebView
-            // 
-            this.WebView.InputMsgFilter = null;
-            this.WebView.ObjectForScripting = null;
-            this.WebView.Title = null;
-            this.WebView.Url = "https://www.twinvision.nl";
             // 
             // AccountsLabel
             // 
@@ -380,8 +359,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TransactionDetails)).EndInit();
             this.TabControl.ResumeLayout(false);
-            this.TabPageBrowser.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.WebViewContent)).EndInit();
             this.TabPageTransactionDetails.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -406,9 +383,7 @@
         private Label label1;
         private TabControl TabControl;
         private TabPage TabPageBrowser;
-        private TabPage TabPageTransactionDetails;
-        private EO.WebBrowser.WebView WebView;
-        private PictureBox WebViewContent;
+        private TabPage TabPageTransactionDetails;      
         private Label AccountsLabel;
         private ComboBox Accounts;
         private Button ListAccounts;

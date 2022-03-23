@@ -3,6 +3,8 @@ using Twinvision.NordigenApi.Responses;
 using System.Linq;
 using Twinvision.NordigenApi.Requests;
 using System.ComponentModel;
+using CefSharp;
+using CefSharp.WinForms;
 
 namespace Twinvision.Nordigen.WinformsTest
 {
@@ -15,10 +17,15 @@ namespace Twinvision.Nordigen.WinformsTest
         private List<Institution> institutions = new List<Institution>();
 
         private NordigenApiCaller? nac = null;
+        private readonly ChromiumWebBrowser browser;
 
         public Main()
         {
             InitializeComponent();
+
+            browser = new ChromiumWebBrowser("https://www.twinvision.nl");
+            browser.Dock = DockStyle.Fill;
+            TabPageBrowser.Controls.Add(browser);
 
             countries.Add("nl", "The Netherlands");
             countries.Add("be", "Belgium");
@@ -119,7 +126,7 @@ namespace Twinvision.Nordigen.WinformsTest
                 requisition = requisitions.Results[0];
             }
             RequisitionId.Text = requisition.Id.ToString();
-            WebView.Url = requisition.Link;
+            browser.LoadUrl(requisition.Link);
             await LoadAccounts();
         }
 
@@ -147,7 +154,6 @@ namespace Twinvision.Nordigen.WinformsTest
 
         private async void Main_Load(object sender, EventArgs e)
         {
-            WebView.Create(WebViewContent.Handle);
             SecretId.Text = Properties.Settings.Default.SecretId;
             SecretKey.Text = Properties.Settings.Default.SecretKey;
             RequisitionId.Text = Properties.Settings.Default.RequisitionId;
