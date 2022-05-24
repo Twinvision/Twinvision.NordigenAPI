@@ -31,7 +31,11 @@ namespace Twinvision.NordigenApi.Handlers
             var response = await Get($"/accounts/{id}/transactions/");
             return await NordigenApiHelper.GetContentFromResponse<Transaction>(response).ConfigureAwait(false);
         }
-
+        public async Task<Transaction> GetAccountTransactions(string id, DateTime dateFrom, DateTime dateTo)
+        {
+            var response = await Get($"/accounts/{id}/transactions/?date_from={dateFrom:yyyy-MM-dd}&date_to={dateTo:yyyy-MM-dd}");
+            return await NordigenApiHelper.GetContentFromResponse<Transaction>(response).ConfigureAwait(false);
+        }
 
     }
 } 

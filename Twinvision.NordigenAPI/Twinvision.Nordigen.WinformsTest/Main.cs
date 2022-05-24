@@ -184,7 +184,7 @@ namespace Twinvision.Nordigen.WinformsTest
             {
                 nac = new NordigenApiCaller(SecretId.Text, SecretKey.Text);
             }
-            var transactions = await nac.Accounts.GetAccountTransactions(Accounts.SelectedValue.ToString());
+            var transactions = await nac.Accounts.GetAccountTransactions(Accounts.SelectedValue.ToString(), FromDate.Value, ToDate.Value);
             TransactionDetails.DataSource = transactions.Transactions.Booked;
             TabControl.SelectedTab = TabPageTransactionDetails;
 
