@@ -184,7 +184,6 @@
             this.RequisitionId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RequisitionId.Location = new System.Drawing.Point(114, 375);
             this.RequisitionId.Name = "RequisitionId";
-            this.RequisitionId.ReadOnly = true;
             this.RequisitionId.Size = new System.Drawing.Size(132, 23);
             this.RequisitionId.TabIndex = 3;
             this.RequisitionId.TextChanged += new System.EventHandler(this.RequisitionId_TextChanged);

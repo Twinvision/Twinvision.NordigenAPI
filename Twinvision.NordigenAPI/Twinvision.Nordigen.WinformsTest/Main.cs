@@ -142,6 +142,7 @@ namespace Twinvision.Nordigen.WinformsTest
                 return;
             }
             var requisitionAccounts = await nac.Requisitions.GetRequisition(Guid.Parse(RequisitionId.Text));
+                
             foreach (var accountId in requisitionAccounts.Accounts)
             {
                 var account = await nac.Accounts.GetAcountMetaData(accountId);

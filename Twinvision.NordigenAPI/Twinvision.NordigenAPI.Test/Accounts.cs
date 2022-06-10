@@ -14,36 +14,36 @@ namespace Twinvision.NordigenApi.Test
         [TestMethod]
         public async Task ListAccountsDetails()
         {
-            //var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
-            //var result = await nac.Accounts.GetAccountDetails("");
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
+            var result = await nac.Accounts.GetAccountDetails("");
 
-            //Assert.IsTrue(result.Account != null);
+            Assert.IsTrue(result.Account != null);
         }
 
         [TestMethod]
         public async Task ListAccountMetaData()
         {
-            //var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
-            //var result = await nac.Accounts.GetAcountMetaData("");
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
+            var result = await nac.Accounts.GetAcountMetaData("");
 
         }
 
         [TestMethod]
         public async Task ListAccountBalances()
         {
-            //var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
-            //var result = await nac.Accounts.GetAccountBalances("");
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
+            var result = await nac.Accounts.GetAccountBalances("");
 
-            //Assert.IsTrue(result.Balances != null);
+            Assert.IsTrue(result.Balances != null);
         }
 
         [TestMethod]
         public async Task ListAccountTransactions()
         {
-            //var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
-            //var result = await nac.Accounts.GetAccountTransactions("nl");
+            var nac = new NordigenApiCaller(TestSecretId, TestSecretKey);
+            var result = await nac.Accounts.GetAccountTransactions("nl");
 
-            //Assert.IsTrue(result.Transactions.Booked != null && result.Transactions.Booked.Count > 0);
+            Assert.IsTrue(result.Transactions.Booked != null && result.Transactions.Booked.Count > 0);
         }     
     }
 }
