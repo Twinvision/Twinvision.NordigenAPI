@@ -115,23 +115,34 @@ namespace Twinvision.Nordigen.WinformsTest
 
             var requisitions = await nac.Requisitions.GetRequisitions();
 
-            if (requisitions.Results.FirstOrDefault(r => r.InstitutionId == institutionId) == null)
+            var requisitionRequest = new RequisitionRequest()
             {
-                var requisitionRequest = new RequisitionRequest()
-                {
-                    InstitutionId = institutionId,
-                    //Agreement = agreement.Id,
-                    Redirect = "https://www.twinvision.nl",
-                    Reference = Guid.NewGuid().ToString(),
-                    UserLanguage = "NL",
-                    AccountSelection = false
-                };
-                requisition = await nac.Requisitions.CreateRequisition(requisitionRequest);
-            }
-            else
-            {
-                requisition = requisitions.Results[0];
-            }
+                InstitutionId = institutionId,
+                //Agreement = agreement.Id,
+                Redirect = "https://www.twinvision.nl",
+                Reference = Guid.NewGuid().ToString(),
+                UserLanguage = "NL",
+                AccountSelection = false
+            };
+            requisition = await nac.Requisitions.CreateRequisition(requisitionRequest);
+
+            //if (requisitions.Results.FirstOrDefault(r => r.InstitutionId == institutionId) == null)
+            //{
+            //    var requisitionRequest = new RequisitionRequest()
+            //    {
+            //        InstitutionId = institutionId,
+            //        //Agreement = agreement.Id,
+            //        Redirect = "https://www.twinvision.nl",
+            //        Reference = Guid.NewGuid().ToString(),
+            //        UserLanguage = "NL",
+            //        AccountSelection = false
+            //    };
+            //    requisition = await nac.Requisitions.CreateRequisition(requisitionRequest);
+            //}
+            //else
+            //{
+            //    requisition = requisitions.Results[0];
+            //}
             RequisitionId.Text = requisition.Id.ToString();
             browser.LoadUrl(requisition.Link);
             await LoadAccounts();
