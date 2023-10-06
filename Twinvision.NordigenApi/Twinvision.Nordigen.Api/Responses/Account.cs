@@ -31,7 +31,7 @@ namespace Twinvision.NordigenApi.Responses
         public DateTime Created { get; set; }
 
         [JsonProperty("last_accessed")]
-        public DateTime LastAccessed { get; set; }
+        public DateTime? LastAccessed { get; set; }
 
         [JsonProperty("iban")]
         public string Iban { get; set; }

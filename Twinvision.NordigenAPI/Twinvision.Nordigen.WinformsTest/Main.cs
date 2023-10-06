@@ -5,11 +5,18 @@ using Twinvision.NordigenApi.Requests;
 using System.ComponentModel;
 using CefSharp;
 using CefSharp.WinForms;
+using System.Xml;
+using System.Xml.XPath;
+using System.Xml.Linq;
+using System.Diagnostics;
+using System.Linq;
+using System.Data.SqlClient;
 
 namespace Twinvision.Nordigen.WinformsTest
 {
     public partial class Main : Form
     {
+        private string estateConnectionString = "";
         private HttpClient client = new HttpClient();
         private Dictionary<string, string> countries = new Dictionary<string, string>();
         private Dictionary<string, string> accounts = new Dictionary<string, string>();
@@ -133,16 +140,16 @@ namespace Twinvision.Nordigen.WinformsTest
         private async Task LoadAccounts()
         {
             accounts.Clear();
-            if(nac == null)
+            if (nac == null)
             {
                 nac = new NordigenApiCaller(SecretId.Text, SecretKey.Text);
             }
-            if(String.IsNullOrWhiteSpace(RequisitionId.Text))
+            if (String.IsNullOrWhiteSpace(RequisitionId.Text))
             {
                 return;
             }
             var requisitionAccounts = await nac.Requisitions.GetRequisition(Guid.Parse(RequisitionId.Text));
-                
+
             foreach (var accountId in requisitionAccounts.Accounts)
             {
                 var account = await nac.Accounts.GetAcountMetaData(accountId);
@@ -194,10 +201,11 @@ namespace Twinvision.Nordigen.WinformsTest
 
         private void TransactionDetails_SelectionChanged(object sender, EventArgs e)
         {
-            if(TransactionDetails.SelectedCells.Count > 0)
+            if (TransactionDetails.SelectedCells.Count > 0)
             {
                 PropertyGrid.SelectedObject = TransactionDetails.SelectedCells[0].Value;
-            } else
+            }
+            else
             {
                 PropertyGrid.SelectedObject = null;
             }
@@ -227,6 +235,111 @@ namespace Twinvision.Nordigen.WinformsTest
                 MessageBox.Show(ex.Message);
             }
             RequisitionId.Text = "";
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            nac = new NordigenApiCaller(SecretId.Text, SecretKey.Text);
+            try
+            {
+                var result = await nac.Requisitions.GetRequisitions();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //copy accounts to estatevision
+            if (accounts.Count > 0 && RequisitionId.Text != "")
+            {
+                string ActiveConnectionString = "";
+                string ActiveCryptedConnectionString = "";
+                XmlDocument doc = new XmlDocument();
+                doc.Load("Configuration.xml");
+                if (doc.DocumentElement != null)
+                {
+                    XmlElement root = doc.DocumentElement;
+
+                    if (root != null)
+                    {
+                        XmlNodeList nodes = root.ChildNodes;
+                        if (nodes != null)
+                        {
+
+                            foreach (XmlNode item in nodes)
+                            {
+                                if (item.Name == "Application")
+                                {
+                                    foreach (XmlNode applicationNode in item.ChildNodes)
+                                    {
+                                        if (applicationNode.Name == "ActiveConnection")
+                                        {
+                                            ActiveConnectionString = applicationNode.InnerText;
+                                        }
+                                    }
+                                }
+                            }
+                            foreach (XmlNode item in nodes)
+                            {
+                                if (item.Name == "Connection")
+                                {
+                                    foreach (XmlNode applicationNode in item.ChildNodes)
+                                    {
+                                        if (applicationNode.Name == "Name")
+                                        {
+                                            if (applicationNode.InnerText == ActiveConnectionString)
+                                            {
+
+                                                ActiveCryptedConnectionString = applicationNode.NextSibling.InnerText.Trim();
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                        if (ActiveCryptedConnectionString.Length > 0)
+                        {
+                            EncryptedString es = new EncryptedString();
+                            es.EncryptedValue = ActiveCryptedConnectionString;
+                            estateConnectionString = es.Value;
+
+                        }
+                    }
+                }
+
+                //load configuration.xml
+                using (SqlConnection conn = new SqlConnection(estateConnectionString))
+                {
+                    int counter = 0;
+                    conn.Open();// open the database connection  
+                    foreach (var account in accounts)
+                    {
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.Connection = conn; // set the connection to instance of SqlCommand  
+                            cmd.CommandText = "UPDATE  tblBank SET BankStatementFileName =@NordigenApi WHERE (BankStatementType = N'ImportNordigenAPI') AND (IBAN = @AcountNumber)";
+                            SqlParameter sqlparameter = new SqlParameter();
+                            cmd.Parameters.Add(new SqlParameter("@NordigenApi", RequisitionId.Text));
+                            cmd.Parameters.Add(new SqlParameter("@AcountNumber", account.Value));
+                            counter = cmd.ExecuteNonQuery();
+                        }
+
+                        Debug.Print(counter.ToString());
+
+                        //apireference  = "BankStatementFileName"
+                        //BankStatementType = "ImportNordigenAPI"
+                        //iban = "IBAN"
+                        // SET REQUISITIONiDS FOR ACCOUNT IN ESTATE
+                    }
+                    conn.Close();// Close the connection  
+                }
+            }
         }
     }
 }

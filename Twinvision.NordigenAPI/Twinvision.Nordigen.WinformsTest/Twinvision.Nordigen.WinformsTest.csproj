@@ -9,11 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.WinForms.NETCore" Version="99.2.120" />
+    <None Include="bin\Debug\net6.0-windows\Configuration.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CefSharp.WinForms.NETCore" Version="116.0.230" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Twinvision.Nordigen.Api\Twinvision.NordigenApi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Twinvision.RijndaelEncryption">
+      <HintPath>assemblies\Twinvision.RijndaelEncryption.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +40,10 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="116.0.23" />
   </ItemGroup>
 
 </Project>

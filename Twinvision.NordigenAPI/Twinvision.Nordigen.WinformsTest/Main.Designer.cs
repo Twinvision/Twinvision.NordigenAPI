@@ -28,340 +28,361 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.Banks = new System.Windows.Forms.ListView();
-            this.BankImages = new System.Windows.Forms.ImageList(this.components);
-            this.Countries = new System.Windows.Forms.ComboBox();
-            this.SecretId = new System.Windows.Forms.TextBox();
-            this.SecretKey = new System.Windows.Forms.TextBox();
-            this.ListBanks = new System.Windows.Forms.Button();
-            this.TransactionDetails = new System.Windows.Forms.DataGridView();
-            this.PropertyGrid = new System.Windows.Forms.PropertyGrid();
-            this.SecretIdLabel = new System.Windows.Forms.Label();
-            this.SecretKeyLabel = new System.Windows.Forms.Label();
-            this.CountriesLabel = new System.Windows.Forms.Label();
-            this.CreateEndUserAgreement = new System.Windows.Forms.Button();
-            this.RequisitionId = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TabControl = new System.Windows.Forms.TabControl();
-            this.TabPageBrowser = new System.Windows.Forms.TabPage();
-            this.TabPageTransactionDetails = new System.Windows.Forms.TabPage();
-            this.AccountsLabel = new System.Windows.Forms.Label();
-            this.Accounts = new System.Windows.Forms.ComboBox();
-            this.ListAccounts = new System.Windows.Forms.Button();
-            this.FromDate = new System.Windows.Forms.DateTimePicker();
-            this.FromDateLabel = new System.Windows.Forms.Label();
-            this.ToDate = new System.Windows.Forms.DateTimePicker();
-            this.ToDateLabel = new System.Windows.Forms.Label();
-            this.ListTransactionDetails = new System.Windows.Forms.Button();
-            this.DeleteRequisition = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.TransactionDetails)).BeginInit();
-            this.TabControl.SuspendLayout();
-            this.TabPageTransactionDetails.SuspendLayout();
-            this.SuspendLayout();
+            Banks = new ListView();
+            BankImages = new ImageList(components);
+            Countries = new ComboBox();
+            SecretId = new TextBox();
+            SecretKey = new TextBox();
+            ListBanks = new Button();
+            TransactionDetails = new DataGridView();
+            PropertyGrid = new PropertyGrid();
+            SecretIdLabel = new Label();
+            SecretKeyLabel = new Label();
+            CountriesLabel = new Label();
+            CreateEndUserAgreement = new Button();
+            RequisitionId = new TextBox();
+            label1 = new Label();
+            TabControl = new TabControl();
+            TabPageBrowser = new TabPage();
+            TabPageTransactionDetails = new TabPage();
+            AccountsLabel = new Label();
+            Accounts = new ComboBox();
+            ListAccounts = new Button();
+            FromDate = new DateTimePicker();
+            FromDateLabel = new Label();
+            ToDate = new DateTimePicker();
+            ToDateLabel = new Label();
+            ListTransactionDetails = new Button();
+            DeleteRequisition = new Button();
+            button1 = new Button();
+            button2 = new Button();
+            ((System.ComponentModel.ISupportInitialize)TransactionDetails).BeginInit();
+            TabControl.SuspendLayout();
+            TabPageTransactionDetails.SuspendLayout();
+            SuspendLayout();
             // 
             // Banks
             // 
-            this.Banks.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.Banks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.Banks.LargeImageList = this.BankImages;
-            this.Banks.Location = new System.Drawing.Point(12, 128);
-            this.Banks.Name = "Banks";
-            this.Banks.Size = new System.Drawing.Size(234, 212);
-            this.Banks.TabIndex = 0;
-            this.Banks.UseCompatibleStateImageBehavior = false;
-            this.Banks.View = System.Windows.Forms.View.Tile;
-            this.Banks.SelectedIndexChanged += new System.EventHandler(this.Banks_SelectedIndexChanged);
+            Banks.Activation = ItemActivation.OneClick;
+            Banks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            Banks.LargeImageList = BankImages;
+            Banks.Location = new Point(12, 128);
+            Banks.Name = "Banks";
+            Banks.Size = new Size(234, 194);
+            Banks.TabIndex = 0;
+            Banks.UseCompatibleStateImageBehavior = false;
+            Banks.View = View.Tile;
+            Banks.SelectedIndexChanged += Banks_SelectedIndexChanged;
             // 
             // BankImages
             // 
-            this.BankImages.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.BankImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("BankImages.ImageStream")));
-            this.BankImages.TransparentColor = System.Drawing.Color.Transparent;
-            this.BankImages.Images.SetKeyName(0, "SandBoxBank");
+            BankImages.ColorDepth = ColorDepth.Depth32Bit;
+            BankImages.ImageStream = (ImageListStreamer)resources.GetObject("BankImages.ImageStream");
+            BankImages.TransparentColor = Color.Transparent;
+            BankImages.Images.SetKeyName(0, "SandBoxBank");
             // 
             // Countries
             // 
-            this.Countries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Countries.FormattingEnabled = true;
-            this.Countries.Location = new System.Drawing.Point(85, 70);
-            this.Countries.Name = "Countries";
-            this.Countries.Size = new System.Drawing.Size(161, 23);
-            this.Countries.TabIndex = 1;
-            this.Countries.SelectedValueChanged += new System.EventHandler(this.Countries_SelectedValueChanged);
+            Countries.DropDownStyle = ComboBoxStyle.DropDownList;
+            Countries.FormattingEnabled = true;
+            Countries.Location = new Point(85, 70);
+            Countries.Name = "Countries";
+            Countries.Size = new Size(161, 23);
+            Countries.TabIndex = 1;
+            Countries.SelectedValueChanged += Countries_SelectedValueChanged;
             // 
             // SecretId
             // 
-            this.SecretId.Location = new System.Drawing.Point(85, 12);
-            this.SecretId.Name = "SecretId";
-            this.SecretId.Size = new System.Drawing.Size(161, 23);
-            this.SecretId.TabIndex = 2;
+            SecretId.Location = new Point(85, 12);
+            SecretId.Name = "SecretId";
+            SecretId.Size = new Size(161, 23);
+            SecretId.TabIndex = 2;
             // 
             // SecretKey
             // 
-            this.SecretKey.Location = new System.Drawing.Point(85, 41);
-            this.SecretKey.Name = "SecretKey";
-            this.SecretKey.Size = new System.Drawing.Size(161, 23);
-            this.SecretKey.TabIndex = 3;
+            SecretKey.Location = new Point(85, 41);
+            SecretKey.Name = "SecretKey";
+            SecretKey.Size = new Size(161, 23);
+            SecretKey.TabIndex = 3;
             // 
             // ListBanks
             // 
-            this.ListBanks.Location = new System.Drawing.Point(12, 99);
-            this.ListBanks.Name = "ListBanks";
-            this.ListBanks.Size = new System.Drawing.Size(234, 23);
-            this.ListBanks.TabIndex = 4;
-            this.ListBanks.Text = "List banks";
-            this.ListBanks.UseVisualStyleBackColor = true;
-            this.ListBanks.Click += new System.EventHandler(this.ListBanks_Click);
+            ListBanks.Location = new Point(12, 99);
+            ListBanks.Name = "ListBanks";
+            ListBanks.Size = new Size(234, 23);
+            ListBanks.TabIndex = 4;
+            ListBanks.Text = "List banks";
+            ListBanks.UseVisualStyleBackColor = true;
+            ListBanks.Click += ListBanks_Click;
             // 
             // TransactionDetails
             // 
-            this.TransactionDetails.AllowUserToAddRows = false;
-            this.TransactionDetails.AllowUserToDeleteRows = false;
-            this.TransactionDetails.AllowUserToOrderColumns = true;
-            this.TransactionDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TransactionDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TransactionDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TransactionDetails.Location = new System.Drawing.Point(3, 3);
-            this.TransactionDetails.Name = "TransactionDetails";
-            this.TransactionDetails.RowTemplate.Height = 25;
-            this.TransactionDetails.Size = new System.Drawing.Size(352, 528);
-            this.TransactionDetails.TabIndex = 5;
-            this.TransactionDetails.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.TransactionDetails_DataBindingComplete);
-            this.TransactionDetails.SelectionChanged += new System.EventHandler(this.TransactionDetails_SelectionChanged);
+            TransactionDetails.AllowUserToAddRows = false;
+            TransactionDetails.AllowUserToDeleteRows = false;
+            TransactionDetails.AllowUserToOrderColumns = true;
+            TransactionDetails.BorderStyle = BorderStyle.None;
+            TransactionDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TransactionDetails.Dock = DockStyle.Fill;
+            TransactionDetails.Location = new Point(3, 3);
+            TransactionDetails.Name = "TransactionDetails";
+            TransactionDetails.RowTemplate.Height = 25;
+            TransactionDetails.Size = new Size(352, 580);
+            TransactionDetails.TabIndex = 5;
+            TransactionDetails.DataBindingComplete += TransactionDetails_DataBindingComplete;
+            TransactionDetails.SelectionChanged += TransactionDetails_SelectionChanged;
             // 
             // PropertyGrid
             // 
-            this.PropertyGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PropertyGrid.Location = new System.Drawing.Point(624, 12);
-            this.PropertyGrid.Name = "PropertyGrid";
-            this.PropertyGrid.Size = new System.Drawing.Size(164, 562);
-            this.PropertyGrid.TabIndex = 6;
+            PropertyGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            PropertyGrid.Location = new Point(624, 12);
+            PropertyGrid.Name = "PropertyGrid";
+            PropertyGrid.Size = new Size(164, 614);
+            PropertyGrid.TabIndex = 6;
             // 
             // SecretIdLabel
             // 
-            this.SecretIdLabel.Location = new System.Drawing.Point(12, 12);
-            this.SecretIdLabel.Name = "SecretIdLabel";
-            this.SecretIdLabel.Size = new System.Drawing.Size(63, 23);
-            this.SecretIdLabel.TabIndex = 7;
-            this.SecretIdLabel.Text = "Secret id:";
-            this.SecretIdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            SecretIdLabel.Location = new Point(12, 12);
+            SecretIdLabel.Name = "SecretIdLabel";
+            SecretIdLabel.Size = new Size(63, 23);
+            SecretIdLabel.TabIndex = 7;
+            SecretIdLabel.Text = "Secret id:";
+            SecretIdLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // SecretKeyLabel
             // 
-            this.SecretKeyLabel.Location = new System.Drawing.Point(12, 44);
-            this.SecretKeyLabel.Name = "SecretKeyLabel";
-            this.SecretKeyLabel.Size = new System.Drawing.Size(63, 15);
-            this.SecretKeyLabel.TabIndex = 7;
-            this.SecretKeyLabel.Text = "Secret key:";
-            this.SecretKeyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            SecretKeyLabel.Location = new Point(12, 44);
+            SecretKeyLabel.Name = "SecretKeyLabel";
+            SecretKeyLabel.Size = new Size(63, 15);
+            SecretKeyLabel.TabIndex = 7;
+            SecretKeyLabel.Text = "Secret key:";
+            SecretKeyLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // CountriesLabel
             // 
-            this.CountriesLabel.Location = new System.Drawing.Point(12, 73);
-            this.CountriesLabel.Name = "CountriesLabel";
-            this.CountriesLabel.Size = new System.Drawing.Size(63, 15);
-            this.CountriesLabel.TabIndex = 7;
-            this.CountriesLabel.Text = "Countries:";
-            this.CountriesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            CountriesLabel.Location = new Point(12, 73);
+            CountriesLabel.Name = "CountriesLabel";
+            CountriesLabel.Size = new Size(63, 15);
+            CountriesLabel.TabIndex = 7;
+            CountriesLabel.Text = "Countries:";
+            CountriesLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // CreateEndUserAgreement
             // 
-            this.CreateEndUserAgreement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CreateEndUserAgreement.Location = new System.Drawing.Point(16, 346);
-            this.CreateEndUserAgreement.Name = "CreateEndUserAgreement";
-            this.CreateEndUserAgreement.Size = new System.Drawing.Size(234, 23);
-            this.CreateEndUserAgreement.TabIndex = 4;
-            this.CreateEndUserAgreement.Text = "Create agreement and requisition";
-            this.CreateEndUserAgreement.UseVisualStyleBackColor = true;
-            this.CreateEndUserAgreement.Click += new System.EventHandler(this.CreateEndUserAgreement_Click);
+            CreateEndUserAgreement.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            CreateEndUserAgreement.Location = new Point(16, 357);
+            CreateEndUserAgreement.Name = "CreateEndUserAgreement";
+            CreateEndUserAgreement.Size = new Size(234, 23);
+            CreateEndUserAgreement.TabIndex = 4;
+            CreateEndUserAgreement.Text = "Create agreement and requisition";
+            CreateEndUserAgreement.UseVisualStyleBackColor = true;
+            CreateEndUserAgreement.Click += CreateEndUserAgreement_Click;
             // 
             // RequisitionId
             // 
-            this.RequisitionId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RequisitionId.Location = new System.Drawing.Point(114, 375);
-            this.RequisitionId.Name = "RequisitionId";
-            this.RequisitionId.Size = new System.Drawing.Size(132, 23);
-            this.RequisitionId.TabIndex = 3;
-            this.RequisitionId.TextChanged += new System.EventHandler(this.RequisitionId_TextChanged);
+            RequisitionId.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RequisitionId.Location = new Point(114, 386);
+            RequisitionId.Name = "RequisitionId";
+            RequisitionId.Size = new Size(132, 23);
+            RequisitionId.TabIndex = 3;
+            RequisitionId.TextChanged += RequisitionId_TextChanged;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.Location = new System.Drawing.Point(12, 378);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 15);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Requisition id:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label1.Location = new Point(12, 389);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 15);
+            label1.TabIndex = 7;
+            label1.Text = "Requisition id:";
+            label1.TextAlign = ContentAlignment.MiddleRight;
             // 
             // TabControl
             // 
-            this.TabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TabControl.Controls.Add(this.TabPageBrowser);
-            this.TabControl.Controls.Add(this.TabPageTransactionDetails);
-            this.TabControl.Location = new System.Drawing.Point(252, 12);
-            this.TabControl.Name = "TabControl";
-            this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(366, 562);
-            this.TabControl.TabIndex = 8;
+            TabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            TabControl.Controls.Add(TabPageBrowser);
+            TabControl.Controls.Add(TabPageTransactionDetails);
+            TabControl.Location = new Point(252, 12);
+            TabControl.Name = "TabControl";
+            TabControl.SelectedIndex = 0;
+            TabControl.Size = new Size(366, 614);
+            TabControl.TabIndex = 8;
             // 
             // TabPageBrowser
             // 
-            this.TabPageBrowser.Location = new System.Drawing.Point(4, 24);
-            this.TabPageBrowser.Name = "TabPageBrowser";
-            this.TabPageBrowser.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageBrowser.Size = new System.Drawing.Size(358, 534);
-            this.TabPageBrowser.TabIndex = 0;
-            this.TabPageBrowser.Text = "Browser";
-            this.TabPageBrowser.UseVisualStyleBackColor = true;
+            TabPageBrowser.Location = new Point(4, 24);
+            TabPageBrowser.Name = "TabPageBrowser";
+            TabPageBrowser.Padding = new Padding(3);
+            TabPageBrowser.Size = new Size(358, 586);
+            TabPageBrowser.TabIndex = 0;
+            TabPageBrowser.Text = "Browser";
+            TabPageBrowser.UseVisualStyleBackColor = true;
             // 
             // TabPageTransactionDetails
             // 
-            this.TabPageTransactionDetails.Controls.Add(this.TransactionDetails);
-            this.TabPageTransactionDetails.Location = new System.Drawing.Point(4, 24);
-            this.TabPageTransactionDetails.Name = "TabPageTransactionDetails";
-            this.TabPageTransactionDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageTransactionDetails.Size = new System.Drawing.Size(358, 534);
-            this.TabPageTransactionDetails.TabIndex = 1;
-            this.TabPageTransactionDetails.Text = "Transaction details";
-            this.TabPageTransactionDetails.UseVisualStyleBackColor = true;
+            TabPageTransactionDetails.Controls.Add(TransactionDetails);
+            TabPageTransactionDetails.Location = new Point(4, 24);
+            TabPageTransactionDetails.Name = "TabPageTransactionDetails";
+            TabPageTransactionDetails.Padding = new Padding(3);
+            TabPageTransactionDetails.Size = new Size(358, 586);
+            TabPageTransactionDetails.TabIndex = 1;
+            TabPageTransactionDetails.Text = "Transaction details";
+            TabPageTransactionDetails.UseVisualStyleBackColor = true;
             // 
             // AccountsLabel
             // 
-            this.AccountsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AccountsLabel.Location = new System.Drawing.Point(16, 465);
-            this.AccountsLabel.Name = "AccountsLabel";
-            this.AccountsLabel.Size = new System.Drawing.Size(63, 15);
-            this.AccountsLabel.TabIndex = 10;
-            this.AccountsLabel.Text = "Accounts:";
-            this.AccountsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            AccountsLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            AccountsLabel.Location = new Point(16, 476);
+            AccountsLabel.Name = "AccountsLabel";
+            AccountsLabel.Size = new Size(63, 15);
+            AccountsLabel.TabIndex = 10;
+            AccountsLabel.Text = "Accounts:";
+            AccountsLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // Accounts
             // 
-            this.Accounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Accounts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Accounts.FormattingEnabled = true;
-            this.Accounts.Location = new System.Drawing.Point(89, 462);
-            this.Accounts.Name = "Accounts";
-            this.Accounts.Size = new System.Drawing.Size(161, 23);
-            this.Accounts.TabIndex = 9;
+            Accounts.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Accounts.DropDownStyle = ComboBoxStyle.DropDownList;
+            Accounts.FormattingEnabled = true;
+            Accounts.Location = new Point(89, 473);
+            Accounts.Name = "Accounts";
+            Accounts.Size = new Size(161, 23);
+            Accounts.TabIndex = 9;
             // 
             // ListAccounts
             // 
-            this.ListAccounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ListAccounts.Location = new System.Drawing.Point(16, 433);
-            this.ListAccounts.Name = "ListAccounts";
-            this.ListAccounts.Size = new System.Drawing.Size(234, 23);
-            this.ListAccounts.TabIndex = 11;
-            this.ListAccounts.Text = "List accounts";
-            this.ListAccounts.UseVisualStyleBackColor = true;
-            this.ListAccounts.Click += new System.EventHandler(this.ListAccounts_Click);
+            ListAccounts.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ListAccounts.Location = new Point(16, 444);
+            ListAccounts.Name = "ListAccounts";
+            ListAccounts.Size = new Size(234, 23);
+            ListAccounts.TabIndex = 11;
+            ListAccounts.Text = "List accounts";
+            ListAccounts.UseVisualStyleBackColor = true;
+            ListAccounts.Click += ListAccounts_Click;
             // 
             // FromDate
             // 
-            this.FromDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FromDate.CustomFormat = "yyyy-MM-dd";
-            this.FromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FromDate.Location = new System.Drawing.Point(89, 491);
-            this.FromDate.Name = "FromDate";
-            this.FromDate.Size = new System.Drawing.Size(161, 23);
-            this.FromDate.TabIndex = 12;
+            FromDate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            FromDate.CustomFormat = "yyyy-MM-dd";
+            FromDate.Format = DateTimePickerFormat.Custom;
+            FromDate.Location = new Point(89, 502);
+            FromDate.Name = "FromDate";
+            FromDate.Size = new Size(161, 23);
+            FromDate.TabIndex = 12;
             // 
             // FromDateLabel
             // 
-            this.FromDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FromDateLabel.Location = new System.Drawing.Point(16, 497);
-            this.FromDateLabel.Name = "FromDateLabel";
-            this.FromDateLabel.Size = new System.Drawing.Size(63, 15);
-            this.FromDateLabel.TabIndex = 13;
-            this.FromDateLabel.Text = "From:";
-            this.FromDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            FromDateLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            FromDateLabel.Location = new Point(16, 508);
+            FromDateLabel.Name = "FromDateLabel";
+            FromDateLabel.Size = new Size(63, 15);
+            FromDateLabel.TabIndex = 13;
+            FromDateLabel.Text = "From:";
+            FromDateLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // ToDate
             // 
-            this.ToDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ToDate.CustomFormat = "yyyy-MM-dd";
-            this.ToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ToDate.Location = new System.Drawing.Point(89, 520);
-            this.ToDate.Name = "ToDate";
-            this.ToDate.Size = new System.Drawing.Size(161, 23);
-            this.ToDate.TabIndex = 12;
+            ToDate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ToDate.CustomFormat = "yyyy-MM-dd";
+            ToDate.Format = DateTimePickerFormat.Custom;
+            ToDate.Location = new Point(89, 531);
+            ToDate.Name = "ToDate";
+            ToDate.Size = new Size(161, 23);
+            ToDate.TabIndex = 12;
             // 
             // ToDateLabel
             // 
-            this.ToDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ToDateLabel.Location = new System.Drawing.Point(12, 526);
-            this.ToDateLabel.Name = "ToDateLabel";
-            this.ToDateLabel.Size = new System.Drawing.Size(63, 15);
-            this.ToDateLabel.TabIndex = 13;
-            this.ToDateLabel.Text = "To:";
-            this.ToDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            ToDateLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ToDateLabel.Location = new Point(12, 537);
+            ToDateLabel.Name = "ToDateLabel";
+            ToDateLabel.Size = new Size(63, 15);
+            ToDateLabel.TabIndex = 13;
+            ToDateLabel.Text = "To:";
+            ToDateLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // ListTransactionDetails
             // 
-            this.ListTransactionDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ListTransactionDetails.Location = new System.Drawing.Point(16, 547);
-            this.ListTransactionDetails.Name = "ListTransactionDetails";
-            this.ListTransactionDetails.Size = new System.Drawing.Size(234, 23);
-            this.ListTransactionDetails.TabIndex = 11;
-            this.ListTransactionDetails.Text = "List transaction details";
-            this.ListTransactionDetails.UseVisualStyleBackColor = true;
-            this.ListTransactionDetails.Click += new System.EventHandler(this.ListTransactionDetails_Click);
+            ListTransactionDetails.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ListTransactionDetails.Location = new Point(16, 558);
+            ListTransactionDetails.Name = "ListTransactionDetails";
+            ListTransactionDetails.Size = new Size(234, 23);
+            ListTransactionDetails.TabIndex = 11;
+            ListTransactionDetails.Text = "List transaction details";
+            ListTransactionDetails.UseVisualStyleBackColor = true;
+            ListTransactionDetails.Click += ListTransactionDetails_Click;
             // 
             // DeleteRequisition
             // 
-            this.DeleteRequisition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteRequisition.Location = new System.Drawing.Point(16, 404);
-            this.DeleteRequisition.Name = "DeleteRequisition";
-            this.DeleteRequisition.Size = new System.Drawing.Size(234, 23);
-            this.DeleteRequisition.TabIndex = 11;
-            this.DeleteRequisition.Text = "Delete active requisition";
-            this.DeleteRequisition.UseVisualStyleBackColor = true;
-            this.DeleteRequisition.Click += new System.EventHandler(this.DeleteRequisition_Click);
+            DeleteRequisition.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            DeleteRequisition.Location = new Point(16, 415);
+            DeleteRequisition.Name = "DeleteRequisition";
+            DeleteRequisition.Size = new Size(234, 23);
+            DeleteRequisition.TabIndex = 11;
+            DeleteRequisition.Text = "Delete active requisition";
+            DeleteRequisition.UseVisualStyleBackColor = true;
+            DeleteRequisition.Click += DeleteRequisition_Click;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button1.Location = new Point(12, 328);
+            button1.Name = "button1";
+            button1.Size = new Size(234, 23);
+            button1.TabIndex = 14;
+            button1.Text = "List accounts";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button2.Location = new Point(16, 603);
+            button2.Name = "button2";
+            button2.Size = new Size(234, 23);
+            button2.TabIndex = 15;
+            button2.Text = "Update Bank in EstateVision";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 586);
-            this.Controls.Add(this.ToDateLabel);
-            this.Controls.Add(this.FromDateLabel);
-            this.Controls.Add(this.ToDate);
-            this.Controls.Add(this.FromDate);
-            this.Controls.Add(this.ListTransactionDetails);
-            this.Controls.Add(this.DeleteRequisition);
-            this.Controls.Add(this.ListAccounts);
-            this.Controls.Add(this.AccountsLabel);
-            this.Controls.Add(this.Accounts);
-            this.Controls.Add(this.TabControl);
-            this.Controls.Add(this.CountriesLabel);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.SecretKeyLabel);
-            this.Controls.Add(this.SecretIdLabel);
-            this.Controls.Add(this.PropertyGrid);
-            this.Controls.Add(this.CreateEndUserAgreement);
-            this.Controls.Add(this.ListBanks);
-            this.Controls.Add(this.RequisitionId);
-            this.Controls.Add(this.SecretKey);
-            this.Controls.Add(this.SecretId);
-            this.Controls.Add(this.Countries);
-            this.Controls.Add(this.Banks);
-            this.Name = "Main";
-            this.Text = "Nordigen Transaction Browser";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
-            this.Load += new System.EventHandler(this.Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.TransactionDetails)).EndInit();
-            this.TabControl.ResumeLayout(false);
-            this.TabPageTransactionDetails.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 638);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(ToDateLabel);
+            Controls.Add(FromDateLabel);
+            Controls.Add(ToDate);
+            Controls.Add(FromDate);
+            Controls.Add(ListTransactionDetails);
+            Controls.Add(DeleteRequisition);
+            Controls.Add(ListAccounts);
+            Controls.Add(AccountsLabel);
+            Controls.Add(Accounts);
+            Controls.Add(TabControl);
+            Controls.Add(CountriesLabel);
+            Controls.Add(label1);
+            Controls.Add(SecretKeyLabel);
+            Controls.Add(SecretIdLabel);
+            Controls.Add(PropertyGrid);
+            Controls.Add(CreateEndUserAgreement);
+            Controls.Add(ListBanks);
+            Controls.Add(RequisitionId);
+            Controls.Add(SecretKey);
+            Controls.Add(SecretId);
+            Controls.Add(Countries);
+            Controls.Add(Banks);
+            Name = "Main";
+            Text = "Nordigen Transaction Browser";
+            FormClosing += Main_FormClosing;
+            Load += Main_Load;
+            ((System.ComponentModel.ISupportInitialize)TransactionDetails).EndInit();
+            TabControl.ResumeLayout(false);
+            TabPageTransactionDetails.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -382,7 +403,7 @@
         private Label label1;
         private TabControl TabControl;
         private TabPage TabPageBrowser;
-        private TabPage TabPageTransactionDetails;      
+        private TabPage TabPageTransactionDetails;
         private Label AccountsLabel;
         private ComboBox Accounts;
         private Button ListAccounts;
@@ -392,5 +413,7 @@
         private Label ToDateLabel;
         private Button ListTransactionDetails;
         private Button DeleteRequisition;
+        private Button button1;
+        private Button button2;
     }
 }
