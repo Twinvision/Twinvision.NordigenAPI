@@ -21,8 +21,8 @@ namespace Twinvision.NordigenApi
         /// <summary>
         /// The api base url.
         /// </summary>
-        private const string ApiUrl = "https://ob.nordigen.com/api/v2";
-
+        //private const string ApiUrl = "https://ob.nordigen.com/api/v2";
+        private const string ApiUrl = "https://bankaccountdata.gocardless.com/api/v2";
         /// <summary>
         /// The client Id used for authentication.
         /// </summary>
